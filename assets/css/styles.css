@@ -90,6 +90,7 @@ body section {
 body section .section-title {
   position: relative;
   margin-bottom: 100px;
+  z-index: 0;
 }
 body section .section-title h2 {
   display: inline-block;
