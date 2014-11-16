@@ -10,13 +10,18 @@
 
 body {
     font-family: ElegantLux, Arial, arial, sans-serif;
-    background: @base-color;
+    background: white;
 
     a {
         color: white;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    p, span {
+        font-size: 28px;
+        line-height: 35px;
+    }
+
+    h1, h2  {
         text-transform: uppercase;
         letter-spacing: 6px;
         color: @dark-gray-color;
@@ -91,15 +96,15 @@ body {
     }
 
     section {
-        margin-top: 150px;
-        margin-bottom: 150px;
+        padding-top: 150px;
+        padding-bottom: 150px;
         .section-title {
             position: relative;
             margin-bottom: 100px;
+            z-index: 0;
             h2 {
                 display: inline-block;
                 padding: 0 30px;
-                background: @base-color;
                 font-size: 50px;
             }
             .title-line {
@@ -114,7 +119,9 @@ body {
     }
 
     #how-it-works {
-        background: white;
+        .section-title h2 {
+            background: white;
+        }
         .step {
             padding: 0 25px;
             .step-number {
@@ -129,21 +136,43 @@ body {
                 }
             }
             .step-text {
-                font-size: 28px;
                 width: calc(~"100% - 60px");
                 padding-left: 25px;
-                line-height: 35px;
                 margin-top: -10px;
                 margin-bottom: 60px;
             }
+        }
+    }
+
+    #philosophy {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        background-color: @base-color;
+        overflow: hidden;
+        position: relative;
+        img {
+            position: absolute;
+            top: -150px;
+            right: 0;
+        }
+        .hidden-sm {
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+        .visible-sm {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .section-title h2 {
+            background: @base-color;
         }
     }
 }
 
 @media all and ( max-width: 768px ) {
     body section {
-        margin-top: 50px;
-        margin-bottom: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
         .section-title {
             margin-bottom: 50px;
             h2 {
