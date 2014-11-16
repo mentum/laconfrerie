@@ -9,9 +9,10 @@
 
     <link rel="shortcut icon" href="assets/favicon.png">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link id="snipcart-theme" type="text/css"href="https://app.snipcart.com/themes/base/snipcart.css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,7 +21,20 @@
             <div id="logo">
                 <img class="img-responsive" src="assets/img/logo.png">
             </div>
-            <h1>disponible sous peu !</h1>
+            <input type="text" id="shipping-address">
+            <a href="#"
+                class="snipcart-add-item"
+                data-item-id="1"
+                data-item-name="SelectionDeLaConfrerie"
+                data-item-price="115.00"
+                data-item-weight="20"
+                data-item-url="http://laconfrerie.ca"
+                data-item-description="Sélection de bières exclusives finement préparée"
+                data-item-max-quantity="1"
+                data-item-avant-gardiste="100.00">
+                    Devenir membre pour 3 mois
+            </a>
+            <!-- <h1>disponible sous peu !</h1> -->
             <ul class="social-links">
                 <li><a href="http://www.facebook.com/laconfrerie.ca"><i class="fa fa-3x fa-facebook"></i></a></li>
                 <li><a href="http://www.twitter.com/laconfrerie_ca"><i class="fa fa-3x fa-twitter"></i></a></li>
@@ -38,5 +52,7 @@
       ga('create', 'UA-56762595-1', 'auto');
       ga('send', 'pageview');
     </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" id="snipcart" src="https://app.snipcart.com/scripts/snipcart.js" data-api-key="MWU1MzQwZDktZjljMy00ZWRjLTg2YjQtMDVkYWFjMjk3YjAw"></script>
 </body>
 </html>
