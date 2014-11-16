@@ -163,7 +163,6 @@ body footer {
 }
 body footer a {
   color: #f5f5f5;
-  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
 }
 body footer a:hover i {
   transition: 0.3s ease;
@@ -173,18 +172,6 @@ body footer a:hover i {
   body section {
     padding-top: 50px;
     padding-bottom: 50px;
-  }
-  body section .section-title {
-    margin-bottom: 50px;
-  }
-  body section .section-title h2 {
-    padding: 0;
-  }
-}
-@media all and (max-width: 768px) {
-  body section {
-    margin-top: 50px;
-    margin-bottom: 50px;
   }
   body section .section-title {
     margin-bottom: 50px;
