@@ -17,6 +17,7 @@ body header {
 }
 body header img {
   margin: 15vh auto;
+  -webkit-filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.8));
 }
 body header h1 {
   margin-top: 10vh;
@@ -30,7 +31,7 @@ body header ul {
   padding-left: 0;
   position: absolute;
   bottom: 20px;
-  width: 100%;
+  witdh: 100%;
 }
 body header ul li {
   display: inline;
@@ -56,12 +57,11 @@ body header ul li a:hover i {
     font-size: 2.5em;
   }
 }
-@media all and ( max-height: 650px ){
-    body header img {
-        margin: 5vh auto;
-    }
-
-    body header img {
-        max-height: 350px !important;
-    }
+@media all and (max-height: 650px) {
+  body header body header img {
+    margin: 5vh auto;
+  }
+  body header body header img {
+    max-height: 350px !important;
+  }
 }
