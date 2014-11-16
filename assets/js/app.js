@@ -1,17 +1,7 @@
 var OFFICES_LAT_LONG = new google.maps.LatLng(46.792194, -71.287216);
 var MAX_DISTANCE_METERS = 25000;
 var distanceService = new google.maps.DistanceMatrixService();
-
-function fillSnipCartShippingAddress() {
-    Snipcart.execute('setShippingAddress', {
-        name: $('#new-member-name').val(),
-        address1: $('#shipping-address').val(),
-        country: 'CA',
-        province: 'QC',
-        city: 'Québec',
-        postalCode: $('#postal-code').val()
-    });
-}
+var gift = false;
 
 function isFormInputValid(id) {
     return $(id).val() != '';
@@ -52,6 +42,28 @@ function validateProvidedAddressIsInBound(successCallback) {
         }, callback);
 }
 
+function fillSnipCartBillingAddress() {
+    Snipcart.execute('setBillingAddress', {
+        name: $('#new-member-name').val(),
+        address1: $('#shipping-address').val(),
+        country: 'CA',
+        province: 'QC',
+        city: 'Québec',
+        postalCode: $('#postal-code').val()
+    });
+}
+
+function fillSnipCartShippingAddress() {
+    Snipcart.execute('setShippingAddress', {
+        name: $('#new-member-name').val(),
+        address1: $('#shipping-address').val(),
+        country: 'CA',
+        province: 'QC',
+        city: 'Québec',
+        postalCode: $('#postal-code').val()
+    });
+}
+
 function add3MonthtsToCart() {
     Snipcart.execute('item.add', {
         // Required properties
@@ -66,7 +78,11 @@ function add3MonthtsToCart() {
         shippable: true
     });
 
+    if (!gift) {
+        fillSnipCartBillingAddress();
+    }
     fillSnipCartShippingAddress();
+
 }
 
 $('#subscribe-button').click(function (event) {
