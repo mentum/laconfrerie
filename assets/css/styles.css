@@ -28,11 +28,14 @@ body header h1 {
 body header ul {
   list-style-type: none;
   padding-left: 0;
-  margin-top: 15vh;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
 }
 body header ul li {
   display: inline;
   margin: 0 30px;
+  text-align: center;
 }
 body header ul li a {
   color: #f5f5f5;
@@ -52,4 +55,13 @@ body header ul li a:hover i {
   body header ul li a i.fa.fa-3x {
     font-size: 2.5em;
   }
+}
+@media all and ( max-height: 650px ){
+    body header img {
+        margin: 5vh auto;
+    }
+
+    body header img {
+        max-height: 350px !important;
+    }
 }
