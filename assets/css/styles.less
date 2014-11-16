@@ -21,38 +21,75 @@ body {
         line-height: 35px;
     }
 
-    h1, h2  {
+    h1, h2 {
         text-transform: uppercase;
         letter-spacing: 6px;
         color: @dark-gray-color;
     }
 
+    .btn {
+        border-radius: 0;
+    }
+
+    .btn-primary {
+        background-color: transparent;
+        color: @gold-color;
+        border-width: 2px;
+        border-color: @gold-color;
+
+        transition: all 0.2s ease-out;
+
+        &:hover {
+            background-color: @gold-color;
+            color: @base-color;
+            border-width: 2px;
+            border-color: @gold-color;
+        }
+    }
+
+    .btn-lg {
+        padding: 20px 25px;
+        font-size: 24px;
+    }
+
+    .text-strike {
+        text-decoration: line-through;
+        opacity: 0.8;
+    }
+
     header {
-        height: 100vh;
         background: @base-color;
         background: url('../img/beer-background.png');
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center top;
         background-size: cover;
         overflow: hidden;
 
-        img {
-            margin: 15vh auto;
-            -webkit-filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.8));
+        #logo {
+            margin-top: 15vh;
+            text-align: center;
+
+            img {
+                margin: auto;
+                -webkit-filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.8));
+            }
         }
 
         h1 {
-            margin-top: 10vh;
-            color: @base-color;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+            color: @dark-gray-color;
         }
 
-        ul {
+        .signup {
+            margin-top: 15vh;
+            background-color: @base-color;
+            padding: 30px;
+            font-size: 28px;
+            margin-bottom: 120px;
+        }
+
+        ul.social-links {
             list-style-type: none;
             padding-left: 0;
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
 
             li {
                 display: inline;
@@ -67,30 +104,6 @@ body {
                         color: @gold-color;
                     }
                 }
-            }
-        }
-
-        @media all and ( max-width: 768px ) {
-            h1 {
-                font-size: 23px;
-            }
-
-            ul li {
-                margin: 0 15px;
-
-                a i.fa.fa-3x {
-                    font-size: 2.5em;
-                }
-            }
-        }
-
-        @media all and ( max-height: 650px ) {
-            body header img {
-                margin: 5vh auto;
-            }
-
-            body header img {
-                max-height: 350px !important;
             }
         }
     }
@@ -114,6 +127,19 @@ body {
                 border-top: 1px solid @dark-gray-color;
                 top: 50px;
                 z-index: -1;
+            }
+            @media all and ( max-width: 768px ) {
+                h1 {
+                    font-size: 23px;
+                }
+
+                ul li {
+                    margin: 0 15px;
+
+                    a i.fa.fa-3x {
+                        font-size: 2.5em;
+                    }
+                }
             }
         }
     }
@@ -140,6 +166,15 @@ body {
                 padding-left: 25px;
                 margin-top: -10px;
                 margin-bottom: 60px;
+            }
+            @media all and ( max-height: 650px ) {
+                body header img {
+                    margin: 5vh auto;
+                }
+
+                body header img {
+                    max-height: 350px !important;
+                }
             }
         }
     }
@@ -173,6 +208,19 @@ body {
     body section {
         padding-top: 50px;
         padding-bottom: 50px;
+        .section-title {
+            margin-bottom: 50px;
+            h2 {
+                padding: 0;
+            }
+        }
+    }
+}
+
+@media all and ( max-width: 768px ) {
+    body section {
+        margin-top: 50px;
+        margin-bottom: 50px;
         .section-title {
             margin-bottom: 50px;
             h2 {

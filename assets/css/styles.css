@@ -20,62 +20,72 @@ body h2 {
   letter-spacing: 6px;
   color: #1e1e1e;
 }
+body .btn {
+  border-radius: 0;
+}
+body .btn-primary {
+  background-color: transparent;
+  color: #dc9942;
+  border-width: 2px;
+  border-color: #dc9942;
+  transition: all 0.2s ease-out;
+}
+body .btn-primary:hover {
+  background-color: #dc9942;
+  color: #f5f5f5;
+  border-width: 2px;
+  border-color: #dc9942;
+}
+body .btn-lg {
+  padding: 20px 25px;
+  font-size: 24px;
+}
+body .text-strike {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
 body header {
-  height: 100vh;
   background: #f5f5f5;
   background: url('../img/beer-background.png');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center top;
   background-size: cover;
   overflow: hidden;
 }
-body header img {
-  margin: 15vh auto;
+body header #logo {
+  margin-top: 15vh;
+  text-align: center;
+}
+body header #logo img {
+  margin: auto;
   -webkit-filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.8));
 }
 body header h1 {
-  margin-top: 10vh;
-  color: #f5f5f5;
-  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+  color: #1e1e1e;
 }
-body header ul {
+body header .signup {
+  margin-top: 15vh;
+  background-color: #f5f5f5;
+  padding: 30px;
+  font-size: 28px;
+  margin-bottom: 120px;
+}
+body header ul.social-links {
   list-style-type: none;
   padding-left: 0;
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
 }
-body header ul li {
+body header ul.social-links li {
   display: inline;
   margin: 0 30px;
   text-align: center;
 }
-body header ul li a {
+body header ul.social-links li a {
   color: #f5f5f5;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
 }
-body header ul li a:hover i {
+body header ul.social-links li a:hover i {
   transition: 0.3s ease;
   color: #dc9942;
-}
-@media all and (max-width: 768px) {
-  body header h1 {
-    font-size: 23px;
-  }
-  body header ul li {
-    margin: 0 15px;
-  }
-  body header ul li a i.fa.fa-3x {
-    font-size: 2.5em;
-  }
-}
-@media all and (max-height: 650px) {
-  body header body header img {
-    margin: 5vh auto;
-  }
-  body header body header img {
-    max-height: 350px !important;
-  }
 }
 body section {
   padding-top: 150px;
@@ -99,6 +109,17 @@ body section .section-title .title-line {
   top: 50px;
   z-index: -1;
 }
+@media all and (max-width: 768px) {
+  body section .section-title h1 {
+    font-size: 23px;
+  }
+  body section .section-title ul li {
+    margin: 0 15px;
+  }
+  body section .section-title ul li a i.fa.fa-3x {
+    font-size: 2.5em;
+  }
+}
 body #how-it-works .section-title h2 {
   background: white;
 }
@@ -121,6 +142,14 @@ body #how-it-works .step .step-text {
   padding-left: 25px;
   margin-top: -10px;
   margin-bottom: 60px;
+}
+@media all and (max-height: 650px) {
+  body #how-it-works .step body header img {
+    margin: 5vh auto;
+  }
+  body #how-it-works .step body header img {
+    max-height: 350px !important;
+  }
 }
 body #philosophy {
   padding-top: 0px;
@@ -149,6 +178,18 @@ body #philosophy .section-title h2 {
   body section {
     padding-top: 50px;
     padding-bottom: 50px;
+  }
+  body section .section-title {
+    margin-bottom: 50px;
+  }
+  body section .section-title h2 {
+    padding: 0;
+  }
+}
+@media all and (max-width: 768px) {
+  body section {
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
   body section .section-title {
     margin-bottom: 50px;
