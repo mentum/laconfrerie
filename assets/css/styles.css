@@ -54,7 +54,7 @@ body header {
   overflow: hidden;
 }
 body header #logo {
-  margin-top: 15vh;
+  margin-top: calc(15vh + 70px);
   text-align: center;
 }
 body header #logo img {
@@ -67,12 +67,20 @@ body header h1 {
 body header .signup {
   margin-top: 15vh;
   background-color: #f5f5f5;
-  padding: 30px;
-  font-size: 28px;
+  padding: 50px;
+  font-size: 38px;
   margin-bottom: 120px;
   opacity: 1;
-  min-height: 430px;
+  min-height: 515px;
   transition: all 0.8s ease-out;
+}
+body header .signup ul {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+body header .signup h1 {
+  margin: 0;
+  line-height: 50px;
 }
 body header .signup label {
   font-size: 20px;

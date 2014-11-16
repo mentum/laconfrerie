@@ -58,16 +58,14 @@ body {
     }
 
     header {
-        //height: 100vh;
         background: @base-color;
         background: url('../img/beer-background.png');
         background-repeat: no-repeat;
         background-position: center top;
         background-size: cover;
         overflow: hidden;
-
         #logo {
-            margin-top: 15vh;
+            margin-top: calc(~"15vh + 70px");
             text-align: center;
 
             img {
@@ -75,20 +73,28 @@ body {
                 -webkit-filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.8));
             }
         }
-
         h1 {
             color: @dark-gray-color;
         }
-
         .signup {
             margin-top: 15vh;
             background-color: @base-color;
-            padding: 30px;
-            font-size: 28px;
+            padding: 50px;
+            font-size: 38px;
             margin-bottom: 120px;
             opacity: 1;
-            min-height: 430px;
+            min-height: 515px;
             transition: all 0.8s ease-out;
+
+            ul {
+                margin-top: 30px;
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                margin: 0;
+                line-height: 50px;
+            }
 
             label {
                 font-size: 20px;
