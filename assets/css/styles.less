@@ -40,13 +40,18 @@
 
 body {
     font-family: ElegantLux, Arial, arial, sans-serif;
-    background: @base-color;
+    background: white;
 
     a {
         color: white;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    p, span {
+        font-size: 28px;
+        line-height: 35px;
+    }
+
+    h1, h2, h3 {
         text-transform: uppercase;
         letter-spacing: 6px;
         color: @dark-gray-color;
@@ -97,55 +102,11 @@ body {
                 margin-top: 20px;
             }
         }
-
-        ul.social-links {
-            list-style-type: none;
-            padding-left: 0;
-
-            li {
-                display: inline;
-                margin: 0 30px;
-                text-align: center;
-                a {
-                    color: @base-color;
-                    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
-
-                    &:hover i {
-                        transition: 0.3s ease;
-                        color: @gold-color;
-                    }
-                }
-            }
-        }
-
-        @media all and ( max-width: 768px ) {
-            h1 {
-                font-size: 23px;
-            }
-
-            ul li {
-                margin: 0 15px;
-
-                a i.fa.fa-3x {
-                    font-size: 2.5em;
-                }
-            }
-        }
-
-        @media all and ( max-height: 650px ) {
-            body header img {
-                margin: 5vh auto;
-            }
-
-            body header img {
-                max-height: 350px !important;
-            }
-        }
     }
 
     section {
-        margin-top: 150px;
-        margin-bottom: 150px;
+        padding-top: 150px;
+        padding-bottom: 150px;
         .section-title {
             position: relative;
             margin-bottom: 100px;
@@ -167,6 +128,10 @@ body {
     }
 
     #how-it-works {
+        .section-title h2 {
+            background: white;
+        }
+
         .step {
             padding: 0 25px;
             .step-number {
@@ -187,6 +152,43 @@ body {
                 line-height: 35px;
                 margin-top: -10px;
                 margin-bottom: 60px;
+            }
+        }
+    }
+
+    #philosophy {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        background-color: @base-color;
+        overflow: hidden;
+        position: relative;
+        img {
+            position: absolute;
+            top: -150px;
+            right: 0;
+        }
+        .hidden-sm {
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+        .visible-sm {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .section-title h2 {
+            background: @base-color;
+        }
+    }
+
+    footer {
+        background: @dark-gray-color;
+        padding: 100px 0;
+        a {
+            color: @base-color;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+            &:hover i {
+                transition: 0.3s ease;
+                color: @gold-color;
             }
         }
     }
