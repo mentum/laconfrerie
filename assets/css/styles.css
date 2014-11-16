@@ -31,7 +31,7 @@ body header ul {
   padding-left: 0;
   position: absolute;
   bottom: 20px;
-  witdh: 100%;
+  width: 100%;
 }
 body header ul li {
   display: inline;
