@@ -2,6 +2,8 @@ var OFFICES_LAT_LONG = new google.maps.LatLng(46.792194, -71.287216);
 var MAX_DISTANCE_METERS = 25000;
 var distanceService = new google.maps.DistanceMatrixService();
 var gift = false;
+var degustationQuotes = ['dégustation', 'découverte', 'partage'];
+var quoteIndex = 0;
 
 function isFormInputValid(id) {
     return $(id).val() != '';
@@ -29,7 +31,7 @@ function validateProvidedAddressIsInBound(successCallback) {
         }
     }
 
-    var destination = $('#shipping-address').val();
+    var destination = $('#shipping-address').val() + $('#postal-code').val();
     distanceService.getDistanceMatrix(
         {
             origins: [OFFICES_LAT_LONG],
@@ -93,3 +95,14 @@ $('#subscribe-button').click(function (event) {
         alert('veuillez remplir le formulaire');
     }
 });
+
+function getNextDegustationQuote() {
+    quoteIndex++;
+    if(quoteIndex == degustationQuotes.length) quoteIndex = 0;
+    return degustationQuotes[quoteIndex];
+
+}
+
+setInterval(function(){
+    $('#degustation-quote').text(getNextDegustationQuote());
+},2500);
