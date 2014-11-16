@@ -20,11 +20,12 @@
 
   transition: all 0.2s ease-out;
 
-  &:hover {
+  &:hover, &:focus {
     background-color: @gold-color;
     color: @base-color;
     border-width: 2px;
     border-color: @gold-color;
+    outline: none;
   }
 }
 
@@ -36,6 +37,10 @@
 .text-strike {
   text-decoration: line-through;
   opacity: 0.8;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 body {
@@ -81,6 +86,21 @@ body {
       padding: 30px;
       font-size: 28px;
       margin-bottom: 120px;
+      opacity: 1;
+      min-height: 430px;
+      transition: all 0.8s ease-out;
+
+      label {
+        font-size: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 0;
+      }
+
+      .snipcart-add-item {
+        margin-top: 20px;
+      }
     }
 
     ul.social-links {

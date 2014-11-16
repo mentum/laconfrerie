@@ -77,3 +77,9 @@ $('#subscribe-button').click(function (event) {
         alert('veuillez remplir le formulaire');
     }
 });
+
+
+$('#buy-gift, #buy-membership').click(function(event) {
+    $('.step0').addClass('hidden');
+    $('.step1').removeClass('hidden');
+});
