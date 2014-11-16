@@ -98,11 +98,15 @@ $('#subscribe-button').click(function (event) {
 
 function getNextDegustationQuote() {
     quoteIndex++;
-    if(quoteIndex == degustationQuotes.length) quoteIndex = 0;
+    if (quoteIndex == degustationQuotes.length) quoteIndex = 0;
     return degustationQuotes[quoteIndex];
-
 }
 
-setInterval(function(){
+setInterval(function () {
     $('#degustation-quote').text(getNextDegustationQuote());
-},2500);
+}, 2500);
+
+$('#buy-gift, #buy-membership').click(function (event) {
+    $('.step0').addClass('hidden');
+    $('.step1').removeClass('hidden');
+});

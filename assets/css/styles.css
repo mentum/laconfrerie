@@ -2,6 +2,30 @@
   font-family: ElegantLux;
   src: url('../fonts/ElegantLux-Mager.otf') format('opentype');
 }
+.btn {
+  border-radius: 0;
+}
+.btn-primary {
+  background-color: transparent;
+  color: #dc9942;
+  border-width: 2px;
+  border-color: #dc9942;
+  transition: all 0.2s ease-out;
+}
+.btn-primary:hover {
+  background-color: #dc9942;
+  color: #f5f5f5;
+  border-width: 2px;
+  border-color: #dc9942;
+}
+.btn-lg {
+  padding: 20px 25px;
+  font-size: 24px;
+}
+.text-strike {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
 body {
   font-family: ElegantLux, Arial, arial, sans-serif;
   background: white;
@@ -15,34 +39,11 @@ body span {
   line-height: 35px;
 }
 body h1,
-body h2 {
+body h2,
+body h3 {
   text-transform: uppercase;
   letter-spacing: 6px;
   color: #1e1e1e;
-}
-body .btn {
-  border-radius: 0;
-}
-body .btn-primary {
-  background-color: transparent;
-  color: #dc9942;
-  border-width: 2px;
-  border-color: #dc9942;
-  transition: all 0.2s ease-out;
-}
-body .btn-primary:hover {
-  background-color: #dc9942;
-  color: #f5f5f5;
-  border-width: 2px;
-  border-color: #dc9942;
-}
-body .btn-lg {
-  padding: 20px 25px;
-  font-size: 24px;
-}
-body .text-strike {
-  text-decoration: line-through;
-  opacity: 0.8;
 }
 body header {
   background: #f5f5f5;
@@ -69,6 +70,18 @@ body header .signup {
   padding: 30px;
   font-size: 28px;
   margin-bottom: 120px;
+  opacity: 1;
+  min-height: 430px;
+  transition: all 0.8s ease-out;
+}
+body header .signup label {
+  font-size: 20px;
+}
+body header .signup .form-group {
+  margin-bottom: 0;
+}
+body header .signup .snipcart-add-item {
+  margin-top: 20px;
 }
 body section {
   padding-top: 150px;
@@ -82,6 +95,7 @@ body section .section-title {
 body section .section-title h2 {
   display: inline-block;
   padding: 0 30px;
+  background: #f5f5f5;
   font-size: 50px;
 }
 body section .section-title .title-line {
@@ -91,17 +105,6 @@ body section .section-title .title-line {
   border-top: 1px solid #1e1e1e;
   top: 50px;
   z-index: -1;
-}
-@media all and (max-width: 768px) {
-  body section .section-title h1 {
-    font-size: 23px;
-  }
-  body section .section-title ul li {
-    margin: 0 15px;
-  }
-  body section .section-title ul li a i.fa.fa-3x {
-    font-size: 2.5em;
-  }
 }
 body #how-it-works .section-title h2 {
   background: white;
@@ -121,18 +124,12 @@ body #how-it-works .step .step-number span {
   padding-right: 15px;
 }
 body #how-it-works .step .step-text {
+  font-size: 28px;
   width: calc(100% - 60px);
   padding-left: 25px;
+  line-height: 35px;
   margin-top: -10px;
   margin-bottom: 60px;
-}
-@media all and (max-height: 650px) {
-  body #how-it-works .step body header img {
-    margin: 5vh auto;
-  }
-  body #how-it-works .step body header img {
-    max-height: 350px !important;
-  }
 }
 body #philosophy {
   padding-top: 0px;
@@ -168,18 +165,6 @@ body footer a {
 body footer a:hover i {
   transition: 0.3s ease;
   color: #dc9942;
-}
-@media all and (max-width: 768px) {
-  body section {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  body section .section-title {
-    margin-bottom: 50px;
-  }
-  body section .section-title h2 {
-    padding: 0;
-  }
 }
 @media all and (max-width: 768px) {
   body section {

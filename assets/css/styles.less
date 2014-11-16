@@ -8,6 +8,36 @@
     src: url('../fonts/ElegantLux-Mager.otf') format('opentype');
 }
 
+.btn {
+    border-radius: 0;
+}
+
+.btn-primary {
+    background-color: transparent;
+    color: @gold-color;
+    border-width: 2px;
+    border-color: @gold-color;
+
+    transition: all 0.2s ease-out;
+
+    &:hover {
+        background-color: @gold-color;
+        color: @base-color;
+        border-width: 2px;
+        border-color: @gold-color;
+    }
+}
+
+.btn-lg {
+    padding: 20px 25px;
+    font-size: 24px;
+}
+
+.text-strike {
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
 body {
     font-family: ElegantLux, Arial, arial, sans-serif;
     background: white;
@@ -21,43 +51,14 @@ body {
         line-height: 35px;
     }
 
-    h1, h2 {
+    h1, h2, h3 {
         text-transform: uppercase;
         letter-spacing: 6px;
         color: @dark-gray-color;
     }
 
-    .btn {
-        border-radius: 0;
-    }
-
-    .btn-primary {
-        background-color: transparent;
-        color: @gold-color;
-        border-width: 2px;
-        border-color: @gold-color;
-
-        transition: all 0.2s ease-out;
-
-        &:hover {
-            background-color: @gold-color;
-            color: @base-color;
-            border-width: 2px;
-            border-color: @gold-color;
-        }
-    }
-
-    .btn-lg {
-        padding: 20px 25px;
-        font-size: 24px;
-    }
-
-    .text-strike {
-        text-decoration: line-through;
-        opacity: 0.8;
-    }
-
     header {
+        //height: 100vh;
         background: @base-color;
         background: url('../img/beer-background.png');
         background-repeat: no-repeat;
@@ -85,6 +86,21 @@ body {
             padding: 30px;
             font-size: 28px;
             margin-bottom: 120px;
+            opacity: 1;
+            min-height: 430px;
+            transition: all 0.8s ease-out;
+
+            label {
+                font-size: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 0;
+            }
+
+            .snipcart-add-item {
+                margin-top: 20px;
+            }
         }
     }
 
@@ -98,6 +114,7 @@ body {
             h2 {
                 display: inline-block;
                 padding: 0 30px;
+                background: @base-color;
                 font-size: 50px;
             }
             .title-line {
@@ -107,19 +124,6 @@ body {
                 border-top: 1px solid @dark-gray-color;
                 top: 50px;
                 z-index: -1;
-            }
-            @media all and ( max-width: 768px ) {
-                h1 {
-                    font-size: 23px;
-                }
-
-                ul li {
-                    margin: 0 15px;
-
-                    a i.fa.fa-3x {
-                        font-size: 2.5em;
-                    }
-                }
             }
         }
     }
@@ -142,19 +146,12 @@ body {
                 }
             }
             .step-text {
+                font-size: 28px;
                 width: calc(~"100% - 60px");
                 padding-left: 25px;
+                line-height: 35px;
                 margin-top: -10px;
                 margin-bottom: 60px;
-            }
-            @media all and ( max-height: 650px ) {
-                body header img {
-                    margin: 5vh auto;
-                }
-
-                body header img {
-                    max-height: 350px !important;
-                }
             }
         }
     }
@@ -192,19 +189,6 @@ body {
             &:hover i {
                 transition: 0.3s ease;
                 color: @gold-color;
-            }
-        }
-    }
-}
-
-@media all and ( max-width: 768px ) {
-    body section {
-        padding-top: 50px;
-        padding-bottom: 50px;
-        .section-title {
-            margin-bottom: 50px;
-            h2 {
-                padding: 0;
             }
         }
     }
