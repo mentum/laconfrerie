@@ -8,184 +8,224 @@
     src: url('../fonts/ElegantLux-Mager.otf') format('opentype');
 }
 
-.btn {
-  border-radius: 0;
-}
-
-.btn-primary {
-  background-color: transparent;
-  color: @gold-color;
-  border-width: 2px;
-  border-color: @gold-color;
-
-  transition: all 0.2s ease-out;
-
-  &:hover {
-    background-color: @gold-color;
-    color: @base-color;
-    border-width: 2px;
-    border-color: @gold-color;
-  }
-}
-
-.btn-lg {
-  padding: 20px 25px;
-  font-size: 24px;
-}
-
-.text-strike {
-  text-decoration: line-through;
-  opacity: 0.8;
-}
-
 body {
-  font-family: ElegantLux, Arial, arial, sans-serif;
-  background: @base-color;
+    font-family: ElegantLux, Arial, arial, sans-serif;
+    background: white;
 
-  a {
-    color: white;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    text-transform: uppercase;
-    letter-spacing: 6px;
-    color: @dark-gray-color;
-  }
-
-  header {
-    //height: 100vh;
-    background: @base-color;
-    background: url('../img/beer-background.png');
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-    overflow: hidden;
-
-    #logo {
-      margin-top: 15vh;
-      text-align: center;
-
-      img {
-        margin: auto;
-        -webkit-filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.8));
-      }
+    a {
+        color: white;
     }
 
-    h1 {
-      color: @dark-gray-color;
-    }
-
-    .signup {
-      margin-top: 15vh;
-      background-color: @base-color;
-      padding: 30px;
-      font-size: 28px;
-      margin-bottom: 120px;
-    }
-
-    ul.social-links {
-      list-style-type: none;
-      padding-left: 0;
-
-      li {
-        display: inline;
-        margin: 0 30px;
-        text-align: center;
-        a {
-          color: @base-color;
-          text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
-
-          &:hover i {
-            transition: 0.3s ease;
-            color: @gold-color;
-          }
-        }
-      }
-    }
-
-    @media all and ( max-width: 768px ) {
-      h1 {
-        font-size: 23px;
-      }
-
-      ul li {
-        margin: 0 15px;
-
-        a i.fa.fa-3x {
-          font-size: 2.5em;
-        }
-      }
-    }
-
-    @media all and ( max-height: 650px ) {
-      body header img {
-        margin: 5vh auto;
-      }
-
-      body header img {
-        max-height: 350px !important;
-      }
-    }
-  }
-
-  section {
-    margin-top: 150px;
-    margin-bottom: 150px;
-    .section-title {
-      position: relative;
-      margin-bottom: 100px;
-      h2 {
-        display: inline-block;
-        padding: 0 30px;
-        background: @base-color;
-        font-size: 50px;
-      }
-      .title-line {
-        position: absolute;
-        height: 0;
-        width: 100%;
-        border-top: 1px solid @dark-gray-color;
-        top: 50px;
-        z-index: -1;
-      }
-    }
-  }
-
-  #how-it-works {
-    .step {
-      padding: 0 25px;
-      .step-number {
-        width: 60px;
-        height: 60px;
-        border-right: 1px solid @dark-gray-color;
-        color: @gold-color;
-        span {
-          font-size: 85px;
-          line-height: 47px;
-          padding-right: 15px;
-        }
-      }
-      .step-text {
+    p, span {
         font-size: 28px;
-        width: calc(~"100% - 60px");
-        padding-left: 25px;
         line-height: 35px;
-        margin-top: -10px;
-        margin-bottom: 60px;
-      }
     }
-  }
+
+    h1, h2 {
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        color: @dark-gray-color;
+    }
+
+    .btn {
+        border-radius: 0;
+    }
+
+    .btn-primary {
+        background-color: transparent;
+        color: @gold-color;
+        border-width: 2px;
+        border-color: @gold-color;
+
+        transition: all 0.2s ease-out;
+
+        &:hover {
+            background-color: @gold-color;
+            color: @base-color;
+            border-width: 2px;
+            border-color: @gold-color;
+        }
+    }
+
+    .btn-lg {
+        padding: 20px 25px;
+        font-size: 24px;
+    }
+
+    .text-strike {
+        text-decoration: line-through;
+        opacity: 0.8;
+    }
+
+    header {
+        background: @base-color;
+        background: url('../img/beer-background.png');
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
+        overflow: hidden;
+
+        #logo {
+            margin-top: 15vh;
+            text-align: center;
+
+            img {
+                margin: auto;
+                -webkit-filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.8));
+            }
+        }
+
+        h1 {
+            color: @dark-gray-color;
+        }
+
+        .signup {
+            margin-top: 15vh;
+            background-color: @base-color;
+            padding: 30px;
+            font-size: 28px;
+            margin-bottom: 120px;
+        }
+
+        ul.social-links {
+            list-style-type: none;
+            padding-left: 0;
+
+            li {
+                display: inline;
+                margin: 0 30px;
+                text-align: center;
+                a {
+                    color: @base-color;
+                    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+
+                    &:hover i {
+                        transition: 0.3s ease;
+                        color: @gold-color;
+                    }
+                }
+            }
+        }
+    }
+
+    section {
+        padding-top: 150px;
+        padding-bottom: 150px;
+        .section-title {
+            position: relative;
+            margin-bottom: 100px;
+            z-index: 0;
+            h2 {
+                display: inline-block;
+                padding: 0 30px;
+                font-size: 50px;
+            }
+            .title-line {
+                position: absolute;
+                height: 0;
+                width: 100%;
+                border-top: 1px solid @dark-gray-color;
+                top: 50px;
+                z-index: -1;
+            }
+            @media all and ( max-width: 768px ) {
+                h1 {
+                    font-size: 23px;
+                }
+
+                ul li {
+                    margin: 0 15px;
+
+                    a i.fa.fa-3x {
+                        font-size: 2.5em;
+                    }
+                }
+            }
+        }
+    }
+
+    #how-it-works {
+        .section-title h2 {
+            background: white;
+        }
+        .step {
+            padding: 0 25px;
+            .step-number {
+                width: 60px;
+                height: 60px;
+                border-right: 1px solid @dark-gray-color;
+                color: @gold-color;
+                span {
+                    font-size: 85px;
+                    line-height: 47px;
+                    padding-right: 15px;
+                }
+            }
+            .step-text {
+                width: calc(~"100% - 60px");
+                padding-left: 25px;
+                margin-top: -10px;
+                margin-bottom: 60px;
+            }
+            @media all and ( max-height: 650px ) {
+                body header img {
+                    margin: 5vh auto;
+                }
+
+                body header img {
+                    max-height: 350px !important;
+                }
+            }
+        }
+    }
+
+    #philosophy {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        background-color: @base-color;
+        overflow: hidden;
+        position: relative;
+        img {
+            position: absolute;
+            top: -150px;
+            right: 0;
+        }
+        .hidden-sm {
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+        .visible-sm {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .section-title h2 {
+            background: @base-color;
+        }
+    }
 }
 
 @media all and ( max-width: 768px ) {
-  body section {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    .section-title {
-      margin-bottom: 50px;
-      h2 {
-        padding: 0;
-      }
+    body section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        .section-title {
+            margin-bottom: 50px;
+            h2 {
+                padding: 0;
+            }
+        }
     }
-  }
+}
+
+@media all and ( max-width: 768px ) {
+    body section {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        .section-title {
+            margin-bottom: 50px;
+            h2 {
+                padding: 0;
+            }
+        }
+    }
 }
