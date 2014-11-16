@@ -3,7 +3,6 @@ var MAX_DISTANCE_METERS = 25000;
 var distanceService = new google.maps.DistanceMatrixService();
 
 function fillSnipCartShippingAddress() {
-    console.log('FILLING THE SHIT ');
     Snipcart.execute('setShippingAddress', {
         name: $('#new-member-name').val(),
         address1: $('#shipping-address').val(),
