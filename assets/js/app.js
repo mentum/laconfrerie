@@ -20,9 +20,9 @@ function callback(response, status) {
         console.log(distance);
 
         if (distance > MAX_DISTANCE_METERS) {
-            alert('Les stock sont épuisés dans votre région');
+            //alert('Les stock sont épuisés dans votre région');
         } else {
-            alert('Bienvenu dans la confrérie')
+            //alert('Bienvenu dans la confrérie')
         }
     }
 }
