@@ -1,5 +1,5 @@
 var OFFICES_LAT_LONG = new google.maps.LatLng(46.792194, -71.287216);
-var MAX_DISTANCE_METERS = 25000;
+var MAX_DISTANCE_METERS = 15000;
 var distanceService = new google.maps.DistanceMatrixService();
 var gift = false;
 var degustationQuotes = ['dégustation', 'découverte', 'partage'];
