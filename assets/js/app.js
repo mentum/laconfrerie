@@ -1,7 +1,7 @@
 var OFFICES_LAT_LONG = new google.maps.LatLng(46.792194, -71.287216);
 var MAX_DISTANCE_METERS = 15000;
 var distanceService = new google.maps.DistanceMatrixService();
-var gift = false;
+var buyAsGift = false;
 var degustationQuotes = ['dégustation', 'découverte', 'partage'];
 var quoteIndex = 0;
 
@@ -80,7 +80,7 @@ function add3MonthtsToCart() {
         shippable: true
     });
 
-    if (!gift) {
+    if (!buyAsGift) {
         fillSnipCartBillingAddress();
     }
     fillSnipCartShippingAddress();
@@ -115,7 +115,15 @@ setInterval(function () {
     swapDegustationQuote();
 }, 3000);
 
-$('#buy-gift, #buy-membership').click(function (event) {
+$('#buy-gift, #buy-membership, #buy-gift-how, #buy-membership-how').click(function () {
     $('.step0').addClass('hidden');
     $('.step1').removeClass('hidden');
+});
+
+$('#buy-gift, #buy-gift-how').click(function(){
+   buyAsGift = true;
+});
+
+$('#buy-membership, #buy-membership-how').click(function(){
+   buyAsGift = false;
 });
