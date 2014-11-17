@@ -1,7 +1,7 @@
 var OFFICES_LAT_LONG = new google.maps.LatLng(46.792194, -71.287216);
 var MAX_DISTANCE_METERS = 15000;
 var distanceService = new google.maps.DistanceMatrixService();
-var gift = false;
+var buyAsGift = false;
 var degustationQuotes = ['dégustation', 'découverte', 'partage'];
 var quoteIndex = 0;
 
@@ -44,26 +44,12 @@ function validateProvidedAddressIsInBound(successCallback) {
         }, callback);
 }
 
-function fillSnipCartBillingAddress() {
-    Snipcart.execute('setBillingAddress', {
-        name: $('#new-member-name').val(),
-        address1: $('#shipping-address').val(),
-        country: 'CA',
-        province: 'QC',
-        city: 'Québec',
-        postalCode: $('#postal-code').val()
-    });
+function fillSnipCartBillingAddress(addressObject) {
+    Snipcart.execute('setBillingAddress', addressObject);
 }
 
-function fillSnipCartShippingAddress() {
-    Snipcart.execute('setShippingAddress', {
-        name: $('#new-member-name').val(),
-        address1: $('#shipping-address').val(),
-        country: 'CA',
-        province: 'QC',
-        city: 'Québec',
-        postalCode: $('#postal-code').val()
-    });
+function fillSnipCartShippingAddress(addressObject) {
+    Snipcart.execute('setShippingAddress', addressObject);
 }
 
 function add3MonthtsToCart() {
@@ -80,11 +66,19 @@ function add3MonthtsToCart() {
         shippable: true
     });
 
-    if (!gift) {
-        fillSnipCartBillingAddress();
-    }
-    fillSnipCartShippingAddress();
+    var snipCartAddressObject = {
+        name: $('#new-member-name').val(),
+        address1: $('#shipping-address').val(),
+        country: 'CA',
+        province: 'QC',
+        city: 'Québec',
+        postalCode: $('#postal-code').val()
+    };
 
+    if (!buyAsGift) {
+        fillSnipCartBillingAddress(snipCartAddressObject);
+    }
+    fillSnipCartShippingAddress(snipCartAddressObject);
 }
 
 $('#subscribe-button').click(function (event) {
@@ -94,6 +88,15 @@ $('#subscribe-button').click(function (event) {
     } else {
         alert('veuillez remplir le formulaire');
     }
+});
+
+$('#buy-gift, #buy-membership').click(function () {
+    $('.step0').addClass('hidden');
+    $('.step1').removeClass('hidden');
+});
+
+$('#buy-gift').click(function () {
+    buyAsGift = true;
 });
 
 function getNextDegustationQuote() {
@@ -114,8 +117,3 @@ function swapDegustationQuote() {
 setInterval(function () {
     swapDegustationQuote();
 }, 3000);
-
-$('#buy-gift, #buy-membership').click(function (event) {
-    $('.step0').addClass('hidden');
-    $('.step1').removeClass('hidden');
-});
