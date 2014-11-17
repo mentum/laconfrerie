@@ -147,6 +147,9 @@ body #how-it-works .step .step-text {
   line-height: 35px;
   margin-top: -10px;
 }
+body #how-it-works #buy-how {
+  margin-top: 75px;
+}
 body #philosophy {
   background-color: #f7f5ea;
   overflow: hidden;
