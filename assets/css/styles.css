@@ -54,7 +54,7 @@ body header {
   overflow: hidden;
 }
 body header #logo {
-  margin-top: calc(15vh + 70px);
+  margin-top: calc(15vh + 119px);
   text-align: center;
 }
 body header #logo img {
@@ -66,66 +66,63 @@ body header h1 {
 }
 body header .signup {
   margin-top: 15vh;
+  margin-bottom: 15vh;
   background-color: #f7f5ea;
   padding: 50px;
-  font-size: 38px;
-  margin-bottom: 120px;
-  opacity: 1;
-  min-height: 515px;
+  height: 550px;
   transition: all 0.8s ease-out;
+  position: relative;
 }
 body header .signup ul {
-  margin-top: 30px;
-  margin-bottom: 40px;
+  position: absolute;
+  top: 45%;
+}
+body header .signup ul li {
+  font-size: 26px;
+  list-style-type: circle;
 }
 body header .signup h1 {
   margin: 0;
   line-height: 50px;
+  font-size: 32px;
 }
 body header .signup h1 #degustation-quote {
   font-weight: bolder;
 }
-body header .signup label {
-  font-size: 20px;
+body header .signup .button-container {
+  position: absolute;
+  bottom: 50px;
 }
-body header .signup .form-group {
-  margin-bottom: 0;
-}
-body header .signup .snipcart-add-item {
-  margin-top: 20px;
-}
-body section {
-  padding-top: 150px;
-  padding-bottom: 150px;
-}
-body section .section-title {
+body .section-title {
   position: relative;
   margin-bottom: 100px;
   z-index: 0;
 }
-body section .section-title h2 {
+body .section-title h2 {
   display: inline-block;
-  padding: 0 30px;
+  padding: 20px 30px 10px 30px;
   background: #f7f5ea;
   font-size: 50px;
   margin-top: 0;
   margin-bottom: 0;
-  padding-top: 20px;
-  padding-bottom: 10px;
 }
-body section .section-title h2.two-line-title {
+body .section-title h2.two-line-title {
   padding-top: 0;
 }
-body section .section-title h2.two-line-title ~ .title-line {
+body .section-title h2.two-line-title ~ .title-line {
   top: 85px;
 }
-body section .section-title .title-line {
+body .section-title .title-line {
   position: absolute;
   height: 0;
   width: 100%;
   border-top: 1px solid #1e1e1e;
   top: 50px;
   z-index: -1;
+}
+body #how-it-works {
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 body #how-it-works .section-title h2 {
   background: white;
@@ -151,8 +148,6 @@ body #how-it-works .step .step-text {
   margin-top: -10px;
 }
 body #philosophy {
-  padding-top: 0px;
-  padding-bottom: 0px;
   background-color: #f7f5ea;
   overflow: hidden;
   position: relative;
@@ -185,24 +180,73 @@ body footer a:hover i {
   transition: 0.3s ease;
   color: #dc9942;
 }
+body footer .section-title h2 {
+  background: #1e1e1e;
+  color: white;
+}
+body footer .section-title .title-line {
+  border-color: white;
+}
+@media all and (max-width: 399px) {
+  body header .signup {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  body header .signup h1 {
+    font-size: 34px;
+  }
+  body header .signup ul {
+    top: 50%;
+  }
+  body header .signup button {
+    padding: 15px 20px;
+  }
+}
 @media all and (max-width: 768px) {
-  body section {
+  body section,
+  body section#how-it-works {
     padding-top: 50px;
     padding-bottom: 50px;
   }
-  body section .section-title {
+  body .section-title {
     margin-bottom: 50px;
   }
-  body section .section-title h2 {
+  body .section-title h2 {
     padding: 0 5px;
     font-size: 38px;
   }
-  body section .section-title .title-line {
+  body .section-title .title-line {
     display: none;
+  }
+  body header #logo {
+    margin-top: 20px;
+  }
+  body header .signup {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  body header .signup h1 {
+    font-size: 30px;
   }
 }
 @media all and (max-width: 991px) {
+  body #how-it-works {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
   body #how-it-works .step {
     clear: both;
+  }
+  body header #logo {
+    margin-top: 20px;
+  }
+  body header .signup {
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+}
+@media all and (min-width: 991px) {
+  body header .signup {
+    max-width: 550px;
   }
 }
