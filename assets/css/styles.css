@@ -82,6 +82,9 @@ body header .signup h1 {
   margin: 0;
   line-height: 50px;
 }
+body header .signup h1 #degustation-quote {
+  font-weight: bolder;
+}
 body header .signup label {
   font-size: 20px;
 }
@@ -192,9 +195,10 @@ body footer a:hover i {
   }
   body section .section-title h2 {
     padding: 0 5px;
+    font-size: 38px;
   }
   body section .section-title .title-line {
-    top: 30px;
+    display: none;
   }
 }
 @media all and (max-width: 991px) {
