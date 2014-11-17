@@ -102,9 +102,18 @@ function getNextDegustationQuote() {
     return degustationQuotes[quoteIndex];
 }
 
+function swapDegustationQuote() {
+    var degustationQuoteElement = $('#degustation-quote');
+    degustationQuoteElement.addClass('animated fadeOut');
+    setTimeout(function () {
+        degustationQuoteElement.removeClass('fadeOut');
+        degustationQuoteElement.addClass('fadeIn');
+        degustationQuoteElement.text(getNextDegustationQuote());
+    }, 700);
+}
 setInterval(function () {
-    $('#degustation-quote').text(getNextDegustationQuote());
-}, 2500);
+    swapDegustationQuote();
+}, 3000);
 
 $('#buy-gift, #buy-membership').click(function (event) {
     $('.step0').addClass('hidden');
