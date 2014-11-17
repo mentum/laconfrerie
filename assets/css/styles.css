@@ -73,11 +73,14 @@ body header .signup {
   transition: all 0.8s ease-out;
   position: relative;
 }
-body header .signup ul {
+body header .signup ul,
+body header .signup p {
   position: absolute;
   top: 45%;
+  width: calc(100% - 100px);
 }
-body header .signup ul li {
+body header .signup ul li,
+body header .signup p li {
   font-size: 26px;
   list-style-type: circle;
 }
@@ -150,6 +153,9 @@ body #how-it-works .step .step-text {
 body #how-it-works #buy-how {
   margin-top: 75px;
 }
+body #how-it-works #buy-how a.btn {
+  margin-bottom: 5px;
+}
 body #philosophy {
   background-color: #f7f5ea;
   overflow: hidden;
@@ -198,7 +204,8 @@ body footer .section-title .title-line {
   body header .signup h1 {
     font-size: 34px;
   }
-  body header .signup ul {
+  body header .signup ul,
+  body header .signup p {
     top: 50%;
   }
   body header .signup button {
