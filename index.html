@@ -5,38 +5,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="La confrérie est une communauté d'amateurs de bière de tous niveaux qui mise sur la découverte et le partage plus que sur la connaissance"/>
+    <meta property="og:title" content="la confrérie"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="http://laconfrerie.ca/assests/img/laconfrerie_icon.png"/>
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image" content="http://laconfrerie.ca/assests/img/facebook.header.png"/>
+    <meta property="og:image:width" content="851" />
+    <meta property="og:image:height" content="315" />
+    <meta property="og:description" content="La confrérie est une communauté d'amateurs de bière de tous niveaux qui mise sur la découverte et le partage plus que sur la connaissance"/>
     <title>la confrérie | club de dégustation</title>
 
     <link rel="shortcut icon" href="assets/favicon.png">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+
+    <link id="snipcart-theme" type="text/css"href="https://app.snipcart.com/themes/base/snipcart.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
+    <header id="top">
         <div class="text-center">
-            <div id="logo">
-                <img class="img-responsive" src="assets/img/logo.png">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-push-6 col-md-4 col-md-push-8 col-sm-8 col-sm-push-2">
+                        <div id="logo">
+                            <img class="img-responsive" src="assets/img/logo.png">
+                        </div>
+                    </div>
+                    <div class="signup col-lg-5 col-lg-offset-1 col-lg-pull-6 col-md-7 col-md-offset-1 col-md-pull-4 col-sm-8 col-sm-offset-2 text-left">
+                        <div class="step0">
+                            <h1>Le club de <div id="degustation-quote">dégustation</div> de bières du monde</h1>
+                            <p>Gardée secrette depuis ses débuts, la confrérie est une communauté d'amateurs de bière qui ouvrira ses portes au public si un intérêt se manifeste </p>
+<!--list of what's included goes here-->
+                            <div class="button-container">
+                                <a href="#contact" class="btn btn-primary btn-lg">démontrez votre intérêt</a>
+<!--subscribe goes here-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1>disponible sous peu !</h1>
-            <ul class="social-links">
-                <li><a href="http://www.facebook.com/laconfrerie.ca"><i class="fa fa-3x fa-facebook"></i></a></li>
-                <li><a href="http://www.twitter.com/laconfrerie_ca"><i class="fa fa-3x fa-twitter"></i></a></li>
-                <li><a href="http://www.instagram.com/laconfrerie_ca"><i class="fa fa-3x fa-instagram"></i></a></li>
-                <li><a href="http://blog.laconfrerie.ca"><i class="fa fa-3x fa-tumblr"></i></a></li>
-            </ul>
         </div>
     </header>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-56762595-1', 'auto');
-      ga('send', 'pageview');
+<!--section how it works goes here-->
+
+    <section id="philosophy">
+        <div class="container-fluid hidden-sm hidden-xs">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="assets/img/beer_tasting.jpg">
+                </div>
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="section-title text-center">
+                        <h2>Ouverture</h2></br>
+                        <h2 class="two-line-title">au public</h2>
+                        <div class="title-line"></div>
+                    </div>
+                    <div></div>
+                    <p class="text-left">
+                        La confrérie est une communauté d'amateurs de bière de tous niveaux qui mise sur la découverte et le partage plus que sur la connaissance.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container visible-sm visible-xs">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="section-title text-center">
+                        <h2>notre</h2></br>
+                        <h2 class="two-line-title">philosophie</h2>
+                        <div class="title-line"></div>
+                    </div>
+                    <p class="text-left">
+                        La confrérie est une communauté d'amateurs de bière de tous niveaux qui mise sur la découverte et le partage plus que sur la connaissance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="container-fluid text-center">
+        <div class="container">
+            <div class="section-title">
+                <h2>restons en contact&nbsp!</h2>
+            </div>
+        </div>
+        <div class="col-xs-2 col-xs-offset-1">
+            <a href="http://www.facebook.com/laconfrerie.ca"><i class="fa fa-3x fa-facebook"></i></a>
+        </div>
+        <div class="col-xs-2">
+            <a href="http://www.twitter.com/laconfrerie_ca"><i class="fa fa-3x fa-twitter"></i></a>
+        </div>
+        <div class="col-xs-2">
+            <a href="http://www.instagram.com/laconfrerie_ca"><i class="fa fa-3x fa-instagram"></i></a>
+        </div>
+        <div class="col-xs-2">
+            <a href="http://blog.laconfrerie.ca"><i class="fa fa-3x fa-tumblr"></i></a>
+        </div>
+        <div class="col-xs-2">
+            <a href="mailto:deguster.laconfrerie@gmail.com"><i class="fa fa-3x fa-envelope"></i></a>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoMlngKPshe4FClImU09HvWqnccXFoNLU"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56762595-1', 'auto');
+    ga('send', 'pageview');
     </script>
 </body>
 </html>
