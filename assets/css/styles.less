@@ -285,20 +285,27 @@ body {
 }
 
 @media all and ( max-width: 399px ) {
-    body header {
-        .signup {
-            padding-left: 10px;
-            padding-right: 10px;
-            height: auto;
-            h1 {
-                font-size: 34px;
+    body {
+        header {
+            .signup {
+                padding-left: 10px;
+                padding-right: 10px;
+                height: auto;
+                h1 {
+                    font-size: 34px;
+                }
+                ul, p {
+                    top: 50%;
+                }
+                button {
+                    padding: 15px 20px;
+                    z-index: 100;
+                }
             }
-            ul, p {
-                top: 50%;
-            }
-            button {
-                padding: 15px 20px;
-                z-index: 100;
+        }
+        footer {
+            .col-xs-2 {
+                padding: 0;
             }
         }
     }

@@ -263,4 +263,7 @@ body footer .section-title .title-line {
     padding: 15px 20px;
     z-index: 100;
   }
+  body footer .col-xs-2 {
+    padding: 0;
+  }
 }
