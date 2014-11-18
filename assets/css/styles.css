@@ -73,16 +73,18 @@ body header .signup {
   transition: all 0.8s ease-out;
   position: relative;
 }
-body header .signup ul,
-body header .signup p {
+body header .signup ul {
   position: absolute;
   top: 45%;
   width: calc(100% - 100px);
 }
-body header .signup ul li,
-body header .signup p li {
+body header .signup ul li {
   font-size: 26px;
   list-style-type: circle;
+}
+body header .signup p {
+  margin: 50px 0;
+  font-size: 25px;
 }
 body header .signup h1 {
   margin: 0;
@@ -91,10 +93,6 @@ body header .signup h1 {
 }
 body header .signup h1 #degustation-quote {
   font-weight: bolder;
-}
-body header .signup .button-container {
-  position: absolute;
-  bottom: 50px;
 }
 body .section-title {
   position: relative;
@@ -190,25 +188,34 @@ body footer a:hover i {
 }
 body footer .section-title h2 {
   background: #1e1e1e;
-  color: white;
+  color: #f7f5ea;
 }
 body footer .section-title .title-line {
-  border-color: white;
+  border-color: #f7f5ea;
 }
-@media all and (max-width: 399px) {
+@media all and (max-width: 991px) {
+  body #how-it-works {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  body #how-it-works .step {
+    clear: both;
+  }
+  body header #logo {
+    margin-top: 20px;
+  }
   body header .signup {
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    text-align: center;
   }
-  body header .signup h1 {
-    font-size: 34px;
+  body #philosophy p {
+    text-align: center;
   }
-  body header .signup ul,
-  body header .signup p {
-    top: 50%;
-  }
-  body header .signup button {
-    padding: 15px 20px;
+}
+@media all and (min-width: 991px) {
+  body header .signup {
+    max-width: 550px;
   }
 }
 @media all and (max-width: 768px) {
@@ -233,29 +240,27 @@ body footer .section-title .title-line {
   body header .signup {
     padding-left: 10px;
     padding-right: 10px;
+    margin-bottom: 0;
   }
   body header .signup h1 {
     font-size: 30px;
   }
 }
-@media all and (max-width: 991px) {
-  body #how-it-works {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  body #how-it-works .step {
-    clear: both;
-  }
-  body header #logo {
-    margin-top: 20px;
-  }
+@media all and (max-width: 399px) {
   body header .signup {
-    margin-top: 20px;
-    margin-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: auto;
   }
-}
-@media all and (min-width: 991px) {
-  body header .signup {
-    max-width: 550px;
+  body header .signup h1 {
+    font-size: 34px;
+  }
+  body header .signup ul,
+  body header .signup p {
+    top: 50%;
+  }
+  body header .signup button {
+    padding: 15px 20px;
+    z-index: 100;
   }
 }
