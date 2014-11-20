@@ -58,7 +58,7 @@ gulp.task('build', [
 
 gulp.task('watch', function () {
     gulp.watch([PATHS.assets + PATHS.styles + 'styles.less', PATHS.assets + PATHS.styles + 'bootstrap-less/bootstrap.less'], ['styles']);
-    gulp.watch(PATHS.assets + PATHS.index, ['views']);
+    gulp.watch(PATHS.index, ['views']);
     gulp.watch([PATHS.assets + PATHS.javascripts], ['scripts']);
 });
 
