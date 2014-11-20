@@ -14,7 +14,11 @@ var PATHS = {
 };
 
 gulp.task('styles', function() {
-    gulp.src([PATHS.assets + PATHS.styles + 'styles.less', PATHS.assets + PATHS.styles + 'bootstrap-less/bootstrap.less'])
+    gulp.src([
+        PATHS.assets + PATHS.styles + 'styles.less',
+        PATHS.assets + PATHS.styles + 'bootstrap-less/bootstrap.less',
+        PATHS.assets + PATHS.styles + '*.css'
+    ])
         .pipe(less())
         .pipe(minifyCss())
         .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'css/'));
