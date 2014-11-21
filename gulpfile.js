@@ -21,45 +21,45 @@ gulp.task('styles', function() {
     ])
         .pipe(less())
         .pipe(minifyCss())
-        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'css/'));
+        .pipe(gulp.dest(PATHS.assets + 'css/'));
 
     gulp.src(PATHS.styles + '*.css')
-        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'css/'));
+        .pipe(gulp.dest(PATHS.assets + 'css/'));
 });
 
-gulp.task('views', function () {
-    gulp.src(PATHS.index)
-        .pipe(gulp.dest(PATHS.dist));
-});
+//gulp.task('views', function () {
+//    gulp.src(PATHS.index)
+//        .pipe(gulp.dest(PATHS.dist));
+//});
 
 
-gulp.task('scripts', function () {
-    gulp.src([PATHS.assets + PATHS.javascripts])
-        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'js/'));
-});
+//gulp.task('scripts', function () {
+//    gulp.src([PATHS.assets + PATHS.javascripts])
+//        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'js/'));
+//});
 
-gulp.task('images', function () {
-    gulp.src(PATHS.assets + PATHS.images)
-        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'img/'));
-});
+//gulp.task('images', function () {
+//    gulp.src(PATHS.assets + PATHS.images)
+//        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'img/'));
+//});
 
-gulp.task('fonts', function () {
-    gulp.src(PATHS.assets + PATHS.fonts)
-        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'fonts/'));
-});
+//gulp.task('fonts', function () {
+//    gulp.src(PATHS.assets + PATHS.fonts)
+//        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'fonts/'));
+//});
 
 gulp.task('build', [
-    'scripts',
-    'views',
-    'styles',
-    'images',
-    'fonts'
+    //'scripts',
+    //'views',
+    'styles'
+    //'images',
+    //'fonts'
 ]);
 
 gulp.task('watch', function () {
     gulp.watch([PATHS.assets + PATHS.styles + '**/*.less'], ['styles']);
-    gulp.watch(PATHS.index, ['views']);
-    gulp.watch([PATHS.assets + PATHS.javascripts], ['scripts']);
+    //gulp.watch(PATHS.index, ['views']);
+    //gulp.watch([PATHS.assets + PATHS.javascripts], ['scripts']);
 });
 
 gulp.task('dev', [
@@ -68,8 +68,6 @@ gulp.task('dev', [
 ]);
 
 gulp.task('deploy',  ['build'], function() {
-    gulp.src('CNAME')
-        .pipe(gulp.dest(PATHS.dist));
-    return gulp.src(PATHS.dist + '**/*')
+    return gulp.src([PATHS.assets + '**/*', PATHS.index, 'CNAME'])
         .pipe(deploy());
 });
