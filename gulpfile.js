@@ -28,11 +28,15 @@ gulp.task('styles', function() {
         .pipe(gulp.dest(PATHS.dist + 'css/'));
 });
 
-//gulp.task('views', function () {
-//    gulp.src(PATHS.index)
-//        .pipe(gulp.dest(PATHS.dist));
-//});
+gulp.task('views', function () {
+    gulp.src(PATHS.index)
+        .pipe(gulp.dest(PATHS.dist));
+});
 
+gulp.task('cname', function () {
+    gulp.src(PATHS.cname)
+        .pipe(gulp.dest(PATHS.dist));
+});
 
 gulp.task('scripts', function () {
     gulp.src([PATHS.assets + PATHS.javascripts])
@@ -51,10 +55,11 @@ gulp.task('fonts', function () {
 
 gulp.task('build', [
     'scripts',
-    //'views',
+    'views',
     'styles',
     'images',
-    'fonts'
+    'fonts',
+    'cname'
 ]);
 
 gulp.task('watch', function () {
@@ -70,7 +75,7 @@ gulp.task('dev', [
 
 gulp.task('pushToGhPages', function() {
     //gulp.src([PATHS.cname, PATHS.dist + '/**/*', PATHS.index])
-    gulp.src('./')
+    gulp.src(PATHS.dist)
         .pipe(deploy());
 });
 
