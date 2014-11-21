@@ -1,14 +1,22 @@
-section#pourPint {
+section#pour-pint {
     background-color: white;
-    height: 800px;
+    padding-top: 150px;
+    h2 {
+        background-color: white;
+        margin-bottom: 0;
+    }
 
     div {
         box-sizing: content-box;
     }
 
+    .section-title:last-child {
+        margin-top: 100px;
+    }
+
     &.animate {
         #action {
-            display: block;
+            opacity: 1;
         }
         #pipe:after {
             animation: flow 5s ease;
@@ -20,14 +28,108 @@ section#pourPint {
             display: block;
             animation: slide 5s ease forwards;
         }
-        .beer {
+        .glass .beer {
             animation: fillup 5s ease;
             &:after {
-                animation: fillupfoam 5s linear, wave 0.5s alternate;
+                animation: fillupfoam 5s linear, wave 0.5s alternate infinite;
             }
         }
         #table {
             animation: showtable 5s linear;
+        }
+
+        @keyframes flow {
+            0%, 15% {
+                top: 30px;
+                height: 0px;
+            }
+            20% {
+                height: 125px;
+            }
+            40% {
+                top: 30px;
+                height: 85px;
+            }
+            55% {
+                top: 30px;
+                height: 60px;
+            }
+            60%, 100% {
+                top: 70px;
+                height: 0px;
+            }
+        }
+        @keyframes handle {
+            0%, 5% {
+                opacity: 0;
+                transform: rotate(-45deg);
+            }
+            20%, 65% {
+                opacity:1;
+                transform: rotate(-130deg);
+            }
+            75%, 100% {
+                transform: rotate(-45deg);
+            }
+            85%, 100% {
+                opacity: 0;
+            }
+        }
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                left: 0;
+            }
+            20%, 80% {
+                opacity: 1;
+                left: 300px;
+            }
+            100% {
+                opacity: 0;
+                left: 600px;
+            }
+        }
+        @keyframes fillup {
+            0%, 20% {
+                height: 0px;
+                border-width: 0px;
+            }
+            40% {
+                height: 40px;
+            }
+            80%, 100% {
+                height: 80px;
+                border-width: 5px;
+            }
+        }
+        @keyframes fillupfoam {
+            0%, 20% {
+                top: 0px;
+                height: 0px;
+            }
+            60%, 100% {
+                top: -14px;
+                height: 15px;
+            }
+        }
+        @keyframes wave {
+            from {
+                transform: skew(0, -3deg);
+            }
+            to {
+                transform: skew(0, 3deg);
+            }
+        }
+        @keyframes showtable {
+            0%, 1% {
+                opacity:0;
+            }
+            10%, 90% {
+                opacity:1;
+            }
+            99%, 100% {
+                opacity:0;
+            }
         }
     }
 
@@ -35,8 +137,8 @@ section#pourPint {
         margin: 0 auto;
         width: 700px;
         position: relative;
-        height: 400px;
-        display: none;
+        height: 200px;
+        opacity: 0;
     }
 
     #keg {
@@ -62,27 +164,6 @@ section#pourPint {
                 width: 6px;
                 background-color: rgba(255, 206, 84, 0.5);
 //                animation: flow 5s ease infinite;
-            }
-            @keyframes flow {
-                0%, 15% {
-                    top: 30px;
-                    height: 0px;
-                }
-                20% {
-                    height: 125px;
-                }
-                40% {
-                    top: 30px;
-                    height: 85px;
-                }
-                55% {
-                    top: 30px;
-                    height: 60px;
-                }
-                60%, 100% {
-                    top: 70px;
-                    height: 0px;
-                }
             }
         }
 
@@ -138,22 +219,6 @@ section#pourPint {
                 box-shadow: 0 2px 3px 0 rgba(0,0,0,.3);
                 z-index: 5;
             }
-            @keyframes handle {
-                0%, 5% {
-                    opacity: 0;
-                    transform: rotate(-45deg);
-                }
-                20%, 65% {
-                    opacity:1;
-                    transform: rotate(-130deg);
-                }
-                75%, 100% {
-                    transform: rotate(-45deg);
-                }
-                85%, 100% {
-                    opacity: 0;
-                }
-            }
         }
     }
 
@@ -165,21 +230,6 @@ section#pourPint {
         background-color: rgba(0, 0, 0, 0.1);
         border-radius: 5px;
 //        animation: slide 5s ease forwards infinite;
-
-        @keyframes slide {
-            0% {
-                opacity: 0;
-                left: 0;
-            }
-            20%, 80% {
-                opacity: 1;
-                left: 300px;
-            }
-            100% {
-                opacity: 0;
-                left: 600px;
-            }
-        }
 
         .front-glass {
             position: relative;
@@ -202,46 +252,12 @@ section#pourPint {
                 position: absolute;
                 display: block;
                 content: " ";
-                /*height: 20px;*/
                 width: 100%;
                 background-color: @base-color;
-                /*top: -20px;*/
                 border-radius: 5px 5px 0 0;
 //                animation: fillupfoam 5s linear infinite, wave 0.5s alternate infinite;
             }
 //            animation: fillup 5s ease infinite;
-
-            @keyframes fillup {
-                0%, 20% {
-                    height: 0px;
-                    border-width: 0px;
-                }
-                40% {
-                    height: 40px;
-                }
-                80%, 100% {
-                    height: 80px;
-                    border-width: 5px;
-                }
-            }
-            @keyframes fillupfoam {
-                0%, 20% {
-                    top: 0px;
-                    height: 0px;
-                }
-                60%, 100% {
-                    top: -14px;
-                    height: 15px;
-                }
-            }
-            @keyframes wave {
-                from {
-                    transform: skew(0, -3deg);
-                }
-                to {
-                    transform: skew(0, 3deg);
-                }
-            }
         }
         .handle {
             position: absolute;
@@ -272,18 +288,5 @@ section#pourPint {
         height: 0;
         border: 5px solid rgba(0,0,0, 0.5);
         border-radius: 2px;
-
-
-        @keyframes showtable {
-            0%, 1% {
-                opacity:0;
-            }
-            10%, 90% {
-                opacity:1;
-            }
-            99%, 100% {
-                opacity:0;
-            }
-        }
     }
 }
