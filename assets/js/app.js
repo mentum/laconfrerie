@@ -117,3 +117,16 @@ function swapDegustationQuote() {
 setInterval(function () {
     swapDegustationQuote();
 }, 3000);
+
+$('#buy-gift, #buy-membership, #buy-gift-how, #buy-membership-how').click(function () {
+    $('.step0').addClass('hidden');
+    $('.step1').removeClass('hidden');
+});
+
+$('#buy-gift, #buy-gift-how').click(function(){
+   buyAsGift = true;
+});
+
+$('#buy-membership, #buy-membership-how').click(function(){
+   buyAsGift = false;
+});
