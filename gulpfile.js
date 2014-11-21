@@ -10,7 +10,8 @@ var PATHS = {
     images: 'img/*',
     fonts: 'fonts/*',
     index: 'index.html',
-    dist: 'dist/'
+    dist: 'dist/',
+    cname: 'CNAME'
 };
 
 gulp.task('styles', function() {
@@ -21,45 +22,51 @@ gulp.task('styles', function() {
     ])
         .pipe(less())
         .pipe(minifyCss())
-        .pipe(gulp.dest(PATHS.assets + 'css/'));
+        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'css/'));
 
     gulp.src(PATHS.styles + '*.css')
-        .pipe(gulp.dest(PATHS.assets + 'css/'));
+        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'css/'));
 });
 
-//gulp.task('views', function () {
-//    gulp.src(PATHS.index)
-//        .pipe(gulp.dest(PATHS.dist));
-//});
+gulp.task('views', function () {
+    gulp.src(PATHS.index)
+        .pipe(gulp.dest(PATHS.dist));
+});
 
 
-//gulp.task('scripts', function () {
-//    gulp.src([PATHS.assets + PATHS.javascripts])
-//        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'js/'));
-//});
+gulp.task('scripts', function () {
+    gulp.src([PATHS.assets + PATHS.javascripts])
+        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'js/'));
+});
 
-//gulp.task('images', function () {
-//    gulp.src(PATHS.assets + PATHS.images)
-//        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'img/'));
-//});
+gulp.task('images', function () {
+    gulp.src(PATHS.assets + PATHS.images)
+        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'img/'));
+});
 
-//gulp.task('fonts', function () {
-//    gulp.src(PATHS.assets + PATHS.fonts)
-//        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'fonts/'));
-//});
+gulp.task('fonts', function () {
+    gulp.src(PATHS.assets + PATHS.fonts)
+        .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'fonts/'));
+});
+
+gulp.task('cname', function () {
+    gulp.src(PATHS.cname)
+        .pipe(gulp.dest(PATHS.dist));
+});
 
 gulp.task('build', [
-    //'scripts',
-    //'views',
-    'styles'
-    //'images',
-    //'fonts'
+    'scripts',
+    'views',
+    'styles',
+    'images',
+    'fonts',
+    'cname'
 ]);
 
 gulp.task('watch', function () {
     gulp.watch([PATHS.assets + PATHS.styles + '**/*.less'], ['styles']);
-    //gulp.watch(PATHS.index, ['views']);
-    //gulp.watch([PATHS.assets + PATHS.javascripts], ['scripts']);
+    gulp.watch(PATHS.index, ['views']);
+    gulp.watch([PATHS.assets + PATHS.javascripts], ['scripts']);
 });
 
 gulp.task('dev', [
@@ -68,6 +75,6 @@ gulp.task('dev', [
 ]);
 
 gulp.task('deploy',  ['build'], function() {
-    return gulp.src([PATHS.assets + '**/*', './' + PATHS.index, './CNAME'])
+    return gulp.src(PATHS.dist)
         .pipe(deploy());
 });
