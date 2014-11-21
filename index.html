@@ -17,8 +17,9 @@
     <meta property="og:description" content="La confrérie est une communauté d'amateurs de bière de tous niveaux qui mise sur la découverte et le partage plus que sur la connaissance"/>
     <title>la confrérie | club de dégustation</title>
 
-    <link rel="shortcut icon" href="assets/favicon.png">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
 
+    <script type="text/javascript" src="http://leaverou.github.io/prefixfree/prefixfree.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
@@ -56,24 +57,37 @@
         </div>
     </header>
 
-<!--section how it works goes here-->
-
-    <section id="how-it-works" class="container">
+    <section id="pour-pint" class="container">
         <div class="section-title text-center">
             <!--TODO: REPLACE THIS WITH A VERY NICE TITLE-->
             <h2>Intéressé, Montrez-le !</h2>
             <div class="title-line"></div>
         </div>
-        <div class="row text-center">
-            <!--TODO: ADD THE CLICK EVENT ON THIS BUTTON AND POST AN EVENT TO KEEN-->
-            <button id="pour-a-pint" class="btn btn-primary btn-lg">Versez-vous en une !</button>
-            <div class="col-xs-12 pint-count-container">
-                <div id="pint-counts"></div>
-                <h3>bières ont été versées</h3>
-                <p class="small-text">* Plus de bières sont versées, plus la confrerie sera tentée d'ouvrir ses portes au public</p>
+        <div id="action">
+            <div id="keg">
+                <div id="bottle"></div>
+                <div id="pipe"></div>
+                <div id="pipe-front"></div>
+            </div>
+            <div class="glass">
+                <div class="beer"></div>
+                <div class="handle">
+                    <div class="top-right-handle"></div>
+                    <div class="bottom-right-handle"></div>
+                </div>
+                <div class="front-glass"></div>
             </div>
         </div>
+        <div class="button-container text-center">
+            <button id="pour-a-pint" class="btn btn-primary btn-lg">Versez-vous en une !</button>
+        </div>
+        <div class="col-xs-12 pint-count-container text-center">
+            <div id="pint-counts"></div>
+            <h3>bières ont été versées</h3>
+            <p class="small-text">* Plus de bières sont versées, plus la confrerie sera tentée d'ouvrir ses portes au public</p>
+        </div>
     </section>
+
 
     <section id="philosophy">
         <div class="container-fluid hidden-sm hidden-xs">
