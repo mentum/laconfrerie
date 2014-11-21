@@ -28,10 +28,10 @@ gulp.task('styles', function() {
         .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'css/'));
 });
 
-gulp.task('views', function () {
-    gulp.src(PATHS.index)
-        .pipe(gulp.dest(PATHS.dist));
-});
+//gulp.task('views', function () {
+//    gulp.src(PATHS.index)
+//        .pipe(gulp.dest(PATHS.dist));
+//});
 
 
 gulp.task('scripts', function () {
@@ -49,18 +49,12 @@ gulp.task('fonts', function () {
         .pipe(gulp.dest(PATHS.dist + PATHS.assets + 'fonts/'));
 });
 
-gulp.task('cname', function () {
-    gulp.src(PATHS.cname)
-        .pipe(gulp.dest(PATHS.dist));
-});
-
 gulp.task('build', [
     'scripts',
-    'views',
+    //'views',
     'styles',
     'images',
-    'fonts',
-    'cname'
+    'fonts'
 ]);
 
 gulp.task('watch', function () {
@@ -69,12 +63,29 @@ gulp.task('watch', function () {
     gulp.watch([PATHS.assets + PATHS.javascripts], ['scripts']);
 });
 
+gulp.task('deployIndex', function () {
+    return gulp.src(PATHS.index)
+        .pipe(deploy());
+});
+
+gulp.task('deployAssets', function () {
+    return gulp.src(PATHS.dist)
+        .pipe(deploy());
+});
+
+gulp.task('deployCname', function () {
+    gulp.src(PATHS.cname)
+        .pipe(gulp.dest(PATHS.dist));
+});
+
 gulp.task('dev', [
     'build',
     'watch'
 ]);
 
-gulp.task('deploy',  ['build'], function() {
-    return gulp.src('./dist/**/*')
-        .pipe(deploy());
-});
+gulp.task('deploy',  [
+    'build',
+    'deployIndex',
+    'deployAssets',
+    'deployCname'
+]);
