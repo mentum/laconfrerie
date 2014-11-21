@@ -26,6 +26,13 @@
         border-width: 2px;
         border-color: @gold-color;
     }
+
+    &:active, &:focus {
+//        background-color: transparent;
+        outline: none;
+        color: @gold-color;
+        border-color: @gold-color;
+    }
 }
 
 .btn-lg {
@@ -177,6 +184,10 @@ body {
             h3{
                 margin-top: 3px;
                 letter-spacing: 4px;
+            }
+            .small-text {
+                font-size: 17px;
+                line-height: 17px;
             }
         }
     }

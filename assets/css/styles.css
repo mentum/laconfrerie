@@ -18,6 +18,12 @@
   border-width: 2px;
   border-color: #dc9942;
 }
+.btn-primary:active,
+.btn-primary:focus {
+  outline: none;
+  color: #dc9942;
+  border-color: #dc9942;
+}
 .btn-lg {
   padding: 20px 25px;
   font-size: 24px;
@@ -164,6 +170,10 @@ body #how-it-works .pint-count-container #pint-counts {
 body #how-it-works .pint-count-container h3 {
   margin-top: 3px;
   letter-spacing: 4px;
+}
+body #how-it-works .pint-count-container .small-text {
+  font-size: 17px;
+  line-height: 17px;
 }
 body #philosophy {
   background-color: #f7f5ea;
