@@ -3,6 +3,8 @@
 @burgundy-color: #843b34;
 @base-color: #f7f5ea;
 
+@import "beer/pour-me-some.less";
+
 @font-face {
     font-family: ElegantLux;
     src: url('../fonts/ElegantLux-Mager.otf') format('opentype');
@@ -17,8 +19,15 @@
     color: @gold-color;
     border-width: 2px;
     border-color: @gold-color;
-
     transition: all 0.2s ease-out;
+
+    &:focus {
+        background-color: transparent;
+        color: @gold-color;
+        border-width: 2px;
+        border-color: @gold-color;
+        outline: none;
+    }
 
     &:hover {
         background-color: @gold-color;
@@ -84,7 +93,7 @@ body {
             height: 550px;
             transition: all 0.8s ease-out;
             position: relative;
-            ul, p {
+            ul{
                 position: absolute;
                 top: 45%;
                 width: calc(~"100% - 100px");
@@ -93,6 +102,10 @@ body {
                     list-style-type: circle;
                 }
             }
+            p {
+                margin: 50px 0;
+                font-size: 25px;
+            }
             h1 {
                 margin: 0;
                 line-height: 50px;
@@ -100,11 +113,6 @@ body {
                 #degustation-quote {
                   font-weight: bolder;
                 }
-            }
-
-            .button-container {
-                position: absolute;
-                bottom: 50px;
             }
         }
     }
@@ -200,7 +208,6 @@ body {
         padding: 100px 0;
         a {
             color: @base-color;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
             &:hover i {
                 transition: 0.3s ease;
                 color: @gold-color;
@@ -209,29 +216,46 @@ body {
         .section-title {
             h2 {
                 background: @dark-gray-color;
-                color: white;
+                color: @base-color;
             }
             .title-line {
-                border-color: white;
+                border-color: @base-color;
             }
         }
     }
 }
 
-@media all and ( max-width: 399px ) {
+@media all and ( max-width: 991px ) {
+    body {
+        #how-it-works {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            .step {
+                clear: both;
+            }
+        }
+        header {
+            #logo {
+                margin-top: 20px;
+            }
+            .signup {
+                margin-top: 20px;
+                margin-bottom: 50px;
+                text-align: center;
+            }
+        }
+        #philosophy {
+            p {
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media all and ( min-width: 991px ) {
     body header {
         .signup {
-            padding-left: 10px;
-            padding-right: 10px;
-            h1 {
-                font-size: 34px;
-            }
-            ul, p {
-                top: 50%;
-            }
-            button {
-                padding: 15px 20px;
-            }
+            max-width: 550px;
         }
     }
 }
@@ -260,6 +284,7 @@ body {
             .signup {
                 padding-left: 10px;
                 padding-right: 10px;
+                margin-bottom: 0;
                 h1 {
                     font-size: 30px;
                 }
@@ -268,31 +293,29 @@ body {
     }
 }
 
-@media all and ( max-width: 991px ) {
+@media all and ( max-width: 399px ) {
     body {
-        #how-it-works {
-            padding-top: 50px;
-            padding-bottom: 50px;
-            .step {
-                clear: both;
-            }
-        }
         header {
-            #logo {
-                margin-top: 20px;
-            }
             .signup {
-                margin-top: 20px;
-                margin-bottom: 0px;
+                padding-left: 10px;
+                padding-right: 10px;
+                height: auto;
+                h1 {
+                    font-size: 34px;
+                }
+                ul, p {
+                    top: 50%;
+                }
+                button {
+                    padding: 15px 20px;
+                    z-index: 100;
+                }
             }
         }
-    }
-}
-
-@media all and ( min-width: 991px ) {
-    body header {
-        .signup {
-            max-width: 550px;
+        footer {
+            .col-xs-2 {
+                padding: 0;
+            }
         }
     }
 }

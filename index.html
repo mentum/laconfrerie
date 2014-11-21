@@ -17,8 +17,9 @@
     <meta property="og:description" content="La confrérie est une communauté d'amateurs de bière de tous niveaux qui mise sur la découverte et le partage plus que sur la connaissance"/>
     <title>la confrérie | club de dégustation</title>
 
-    <link rel="shortcut icon" href="assets/favicon.png">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
 
+    <script type="text/javascript" src="http://leaverou.github.io/prefixfree/prefixfree.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
@@ -40,21 +41,11 @@
                     <div class="signup col-lg-5 col-lg-offset-1 col-lg-pull-6 col-md-7 col-md-offset-1 col-md-pull-4 col-sm-8 col-sm-offset-2 text-left">
                         <div class="step0">
                             <h1>Le club de <div id="degustation-quote">dégustation</div> de bières du monde</h1>
-                            <ul>
-                                <li>Sélection exclusive</li>
-                                <li>8 bouteilles de grosseur variable</li>
-                                <li>Livrée à chaque mois</li>
-                            </ul>
+                            <p>Gardée secrète depuis ses débuts, la confrérie est une communauté d'amateurs de bière qui ouvrira ses portes au public si un intérêt se manifeste </p>
+<!--list of what's included goes here-->
                             <div class="button-container">
-                                <button id="buy-membership" class="btn btn-primary btn-lg">Devenir membre</button>
-                                <button id="buy-gift" class="btn btn-primary btn-lg ">Offrir</button>
-                            </div>
-                        </div>
-                        <div class="step1 hidden">
-                            <h1>Merci pour votre intérêt!</h1>
-                            <p>La confrérie ouvrira bientôt ses portes au grand public. Entre temps, savourez une bière entre amis!</p>
-                            <div class="button-container">
-                                <a href="#contact" class="btn btn-primary btn-lg">restons en contact&nbsp!</a>
+                                <a href="#contact" class="btn btn-primary btn-lg">Démontrez votre intérêt</a>
+<!--subscribe goes here-->
                             </div>
                         </div>
                     </div>
@@ -62,6 +53,38 @@
             </div>
         </div>
     </header>
+
+    <section id="pour-pint">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Vous voulez démontrer votre intérêt?</h2>
+            </div>
+            <div id="action">
+                <div id="keg">
+                    <div id="bottle"></div>
+                    <div id="pipe"></div>
+                    <div id="pipe-front"></div>
+                </div>
+                <div class="glass">
+                    <div class="beer"></div>
+                    <div class="handle">
+                        <div class="top-right-handle"></div>
+                        <div class="bottom-right-handle"></div>
+                    </div>
+                    <div class="front-glass"></div>
+                </div>
+                <!--<div id="table"></div>-->
+            </div>
+            <div class="button-container text-center">
+                <button id="animate-beer" class="btn btn-primary btn-lg">Versez-vous une bonne bière!</button>
+            </div>
+
+            <div class="section-title text-center">
+                <h3>Bières versées jusqu'à présent</h3>
+                <h3>100000</h3>
+            </div>
+        </div>
+    </section>
 
     <section id="how-it-works" class="container">
         <div class="section-title text-center">
@@ -114,12 +137,13 @@
                 </div>
                 <div class="col-md-5 col-md-offset-1">
                     <div class="section-title text-center">
-                        <h2>notre</h2></br>
+                        <h2>Notre</h2></br>
                         <h2 class="two-line-title">philosophie</h2>
                         <div class="title-line"></div>
                     </div>
+                    <div></div>
                     <p class="text-left">
-                        La confrérie est une communauté d'amateurs de bière de tous niveaux qui mise sur la découverte et le partage plus que sur la connaissance.
+                        La confrérie est une communauté d'amateurs de bière de tous niveaux qui mise sur la découverte plus que sur la connaissance. Nous croyons fermement que la bière est meilleure lorsque partagée, c’est notre raison d'être!
                     </p>
                 </div>
             </div>
@@ -140,26 +164,30 @@
         </div>
     </section>
 
-    <footer id="contact" class="container-fluid text-center">
+    <footer id="contact" class="container-fluid">
         <div class="container">
-            <div class="section-title">
-                <h2>restons en contact&nbsp!</h2>
+            <div class="row text-center">
+                 <div class="section-title">
+                    <h2>restons en contact&nbsp!</h2>
+                </div>
             </div>
-        </div>
-        <div class="col-xs-2 col-xs-offset-1">
-            <a href="http://www.facebook.com/laconfrerie.ca"><i class="fa fa-3x fa-facebook"></i></a>
-        </div>
-        <div class="col-xs-2">
-            <a href="http://www.twitter.com/laconfrerie_ca"><i class="fa fa-3x fa-twitter"></i></a>
-        </div>
-        <div class="col-xs-2">
-            <a href="http://www.instagram.com/laconfrerie_ca"><i class="fa fa-3x fa-instagram"></i></a>
-        </div>
-        <div class="col-xs-2">
-            <a href="http://blog.laconfrerie.ca"><i class="fa fa-3x fa-tumblr"></i></a>
-        </div>
-        <div class="col-xs-2">
-            <a href="mailto:deguster.laconfrerie@gmail.com"><i class="fa fa-3x fa-envelope"></i></a>
+            <div class="row text-center">
+                <div class="col-xs-2 col-xs-offset-1">
+                    <a href="http://www.facebook.com/laconfrerie.ca"><i class="fa fa-3x fa-facebook"></i></a>
+                </div>
+                <div class="col-xs-2">
+                    <a href="http://www.twitter.com/laconfrerie_ca"><i class="fa fa-3x fa-twitter"></i></a>
+                </div>
+                <div class="col-xs-2">
+                    <a href="http://www.instagram.com/laconfrerie_ca"><i class="fa fa-3x fa-instagram"></i></a>
+                </div>
+                <div class="col-xs-2">
+                    <a href="http://blog.laconfrerie.ca"><i class="fa fa-3x fa-tumblr"></i></a>
+                </div>
+                <div class="col-xs-2">
+                    <a href="mailto:deguster.laconfrerie@gmail.com"><i class="fa fa-3x fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
