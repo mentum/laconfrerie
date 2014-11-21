@@ -67,12 +67,7 @@ gulp.task('dev', [
     'watch'
 ]);
 
-gulp.task('pushToGhPages', function () {
+gulp.task('deploy', ['build'],  function () {
     return gulp.src(PATHS.dist + '/**/*')
         .pipe(deploy());
 });
-
-gulp.task('deploy', [
-    'build',
-    'pushToGhPages'
-]);
