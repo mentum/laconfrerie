@@ -74,8 +74,8 @@ gulp.task('dev', [
 ]);
 
 gulp.task('pushToGhPages', function() {
-    return gulp.src([PATHS.cname, PATHS.dist + '/**/*', PATHS.index])
-    //gulp.src(PATHS.dist)
+    //return gulp.src([PATHS.cname, PATHS.dist + '/**/*', PATHS.index])
+    return gulp.src(PATHS.dist)
         .pipe(deploy());
 });
 
