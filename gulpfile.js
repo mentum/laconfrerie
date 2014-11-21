@@ -68,10 +68,6 @@ gulp.task('dev', [
 ]);
 
 gulp.task('deploy',  ['build'], function() {
-    return gulp.src(PATHS.assets + '**/*')
-        .pipe(deploy());
-    return gulp.src(PATHS.index)
-        .pipe(deploy());
-    return gulp.src('CNAME')
+    return gulp.src([PATHS.assets + '**/*', './' + PATHS.index, './CNAME'])
         .pipe(deploy());
 });
