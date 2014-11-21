@@ -69,12 +69,12 @@ gulp.task('deployIndex', function () {
 });
 
 gulp.task('deployAssets', function () {
-    return gulp.src(PATHS.dist)
+    return gulp.src(PATHS.dist + '/**/*')
         .pipe(deploy());
 });
 
 gulp.task('deployCname', function () {
-    gulp.src(PATHS.cname)
+    return gulp.src(PATHS.cname)
         .pipe(gulp.dest(PATHS.dist));
 });
 
@@ -83,9 +83,7 @@ gulp.task('dev', [
     'watch'
 ]);
 
-gulp.task('deploy',  [
-    'build',
-    'deployIndex',
-    'deployAssets',
-    'deployCname'
-]);
+gulp.task('deploy',  ['build'], function() {
+    return gulp.src([PATHS.cname, PATHS.dist + '/**/*', PATHS.index])
+        .pipe(gulp.dest(PATHS.dist));
+});
