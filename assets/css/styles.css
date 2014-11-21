@@ -154,6 +154,17 @@ body #how-it-works #buy-how {
 body #how-it-works #buy-how a.btn {
   margin-bottom: 5px;
 }
+body #how-it-works .pint-count-container {
+  margin-top: 50px;
+}
+body #how-it-works .pint-count-container #pint-counts {
+  font-size: 70px;
+  font-weight: 600;
+}
+body #how-it-works .pint-count-container h3 {
+  margin-top: 3px;
+  letter-spacing: 4px;
+}
 body #philosophy {
   background-color: #f7f5ea;
   overflow: hidden;
