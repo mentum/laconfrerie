@@ -68,7 +68,7 @@ gulp.task('dev', [
 ]);
 
 gulp.task('pushToGhPages', function() {
-    return gulp.src(PATHS.dist + '/**/*')
+    return gulp.src(PATHS.dist + '**/*')
         .pipe(deploy({
             push: false
         }));
