@@ -75,6 +75,6 @@ gulp.task('dev', [
 ]);
 
 gulp.task('deploy',  ['build'], function() {
-    return gulp.src(PATHS.dist)
+    return gulp.src('./dist/**/*')
         .pipe(deploy());
 });
