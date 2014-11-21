@@ -1,14 +1,23 @@
-laconfrerie
+laconfrerie.ca
 ===========
 
 Club de dégustation
 
 
-Build less:
+Dependencies:
 ===========
 
-```npm install less```
+```npm install gulp```
+```npm install gulp-less```
+```npm install gulp-minify-css```
+```npm install gulp-gh-pages```
 
-```lessc assets/css/styles.less > assets/css/styles.css```
 
-```lessc assets/css/bootstrap-less/bootstrap.less > assets/css/bootstrap.css```
+Development mode
+===========
+```gulp dev```
+
+
+Deploy to gh-pages
+===========
+```gulp deploy```
