@@ -7,10 +7,7 @@ Club de dégustation
 Dependencies:
 ===========
 
-```npm install gulp```
-```npm install gulp-less```
-```npm install gulp-minify-css```
-```npm install gulp-gh-pages```
+```npm install```
 
 
 Development mode
