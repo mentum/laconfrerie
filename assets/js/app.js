@@ -32,3 +32,15 @@ $('#buy-gift, #buy-gift-how').click(function(){
 $('#buy-membership, #buy-membership-how').click(function(){
    buyAsGift = false;
 });
+
+var isAnimating = false;
+$('#animate-beer').click(function(event) {
+    if(!isAnimating) {
+        isAnimating = true;
+        $('#pourPint').addClass('animate');
+        window.setTimeout(function() {
+            $('#pourPint').removeClass('animate');
+            isAnimating = false;
+        }, 5000);
+    }
+});
