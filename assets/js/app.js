@@ -50,4 +50,15 @@
         }
     });
 
+    var isAnimating = false;
+    $('#animate-beer').click(function(event) {
+        if(!isAnimating) {
+            isAnimating = true;
+            $('#pour-pint').addClass('animate');
+            window.setTimeout(function() {
+                $('#pour-pint').removeClass('animate');
+                isAnimating = false;
+            }, 5000);
+        }
+    });
 })();
