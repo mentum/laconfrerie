@@ -68,8 +68,10 @@ gulp.task('dev', [
 ]);
 
 gulp.task('pushToGhPages', function() {
-    return gulp.src([PATHS.dist + PATHS.assets + '/**/*', PATHS.dist + 'index.html'])
-        .pipe(deploy());
+    return gulp.src(PATHS.dist + '/**/*')
+        .pipe(deploy({
+            push: false
+        }));
 });
 
 gulp.task('deploy',  [
