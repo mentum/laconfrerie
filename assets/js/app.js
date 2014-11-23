@@ -54,12 +54,10 @@ function fillSnipCartShippingAddress(addressObject) {
 
 function add3MonthtsToCart() {
     Snipcart.execute('item.add', {
-        // Required properties
         id: '1',
         name: "3 mois d'abonnement",
         url: '/',
         price: 115,
-        // Optional properties
         description: 'Sélection de bières exclusives finement préparée à chaque mois',
         quantity: 1,
         maxQuantity: 1,
@@ -129,4 +127,8 @@ $('#buy-gift, #buy-gift-how').click(function(){
 
 $('#buy-membership, #buy-membership-how').click(function(){
    buyAsGift = false;
+});
+
+Snipcart.execute('bind', 'order.completed', function(data){
+    console.log('antoine', data);
 });
