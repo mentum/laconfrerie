@@ -1,6 +1,21 @@
-section#pour-pint {
-    background-color: white;
-    padding-top: 150px;
+#pour-pint {
+    .pint-count-container {
+            #pint-counts {
+                font-size: 40px;
+                font-weight: 600;
+            }
+            p {
+                margin: 50px 0 0 0;
+            }
+            h3 {
+                margin-top: 3px;
+                letter-spacing: 4px;
+            }
+            .small-text {
+                font-size: 17px;
+                line-height: 17px;
+            }
+        }
     h2 {
         background-color: white;
         margin-bottom: 0;
@@ -135,9 +150,8 @@ section#pour-pint {
 
     #action {
         margin: 0 auto;
-        width: 700px;
         position: relative;
-        height: 200px;
+        height: 150px;
         opacity: 0;
     }
 
@@ -253,7 +267,7 @@ section#pour-pint {
                 display: block;
                 content: " ";
                 width: 100%;
-                background-color: @base-color;
+                background-color: white;
                 border-radius: 5px 5px 0 0;
 //                animation: fillupfoam 5s linear infinite, wave 0.5s alternate infinite;
             }
@@ -288,5 +302,11 @@ section#pour-pint {
         height: 0;
         border: 5px solid rgba(0,0,0, 0.5);
         border-radius: 2px;
+    }
+}
+
+@media all and ( max-width: 399px ) {
+    #pour-pint #action {
+        margin-left: -125px;
     }
 }
