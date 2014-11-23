@@ -102,7 +102,8 @@
     });
 
     Snipcart.execute('bind', 'order.completed', function (data) {
-        console.log('antoine', data);
+        $('.step0, .step1').addClass('hidden');
+        $('.step2').removeClass('hidden');
     });
 
 })();
