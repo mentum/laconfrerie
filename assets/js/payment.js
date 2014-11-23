@@ -4,6 +4,7 @@
     var MAX_DISTANCE_METERS = 15000;
     var distanceService = new google.maps.DistanceMatrixService();
     var buyAsGift = false;
+    var orderComplete = false;
 
     var subscribeFormIsValid = function () {
         return (isFormInputValid('#new-member-name') && isFormInputValid('#shipping-address') && isFormInputValid('#shipping-city') && isFormInputValid('#postal-code'));
@@ -101,9 +102,14 @@
         buyAsGift = false;
     });
 
-    Snipcart.execute('bind', 'order.completed', function (data) {
-        $('.step0, .step1').addClass('hidden');
-        $('.step2').removeClass('hidden');
+    Snipcart.execute('bind', 'cart.closed', function() {
+        if(orderComplete){
+            $('.step0, .step1').addClass('hidden');
+            $('.step2').removeClass('hidden');
+        }
     });
 
+    Snipcart.execute('bind', 'order.completed', function (data) {
+        orderComplete = true;
+    });
 })();
