@@ -1,95 +1,13 @@
+"use strict";
 (function () {
-    "use strict";
-
-    var OFFICES_LAT_LONG = new google.maps.LatLng(46.792194, -71.287216);
-    var MAX_DISTANCE_METERS = 15000;
-    var distanceService = new google.maps.DistanceMatrixService();
-    var buyAsGift = false;
+    var KEEN_PINTS_COLLECTION_NAME = 'poured-pints';
+    var BASE_POURED_PINTS = 531;
     var degustationQuotes = ['dégustation', 'découverte', 'partage'];
     var quoteIndex = 0;
+    var totalPouredPints = 0;
+    var isBeerAnimating = false;
 
-    var subscribeFormIsValid = function () {
-        return (isFormInputValid('#new-member-name') && isFormInputValid('#shipping-address') && isFormInputValid('#shipping-city') && isFormInputValid('#postal-code'));
-    };
-
-    function isFormInputValid(id) {
-        return $(id).val() != '';
-    }
-
-    function validateProvidedAddressIsInBound(successCallback) {
-        function callback(response, status) {
-            if (status == 'OK') {
-                if (response.rows[0].elements[0].distance) {
-                    var distance = response.rows[0].elements[0].distance.value;
-                    if (distance < MAX_DISTANCE_METERS) {
-                        successCallback()
-                    } else {
-                        alert('Les stock sont épuisés dans votre région');
-                    }
-                } else {
-                    alert('Il y a eu un problème avec votre adresse');
-                }
-            } else {
-                alert('Il y a eu un problème avec votre adresse');
-            }
-        }
-
-        var destination = $('#shipping-address').val() + $('#postal-code').val();
-        distanceService.getDistanceMatrix(
-            {
-                origins: [OFFICES_LAT_LONG],
-                destinations: [destination],
-                travelMode: google.maps.TravelMode.DRIVING,
-                unitSystem: google.maps.UnitSystem.METRIC,
-                durationInTraffic: false,
-                avoidHighways: false,
-                avoidTolls: false
-            }, callback);
-    }
-
-    function fillSnipCartBillingAddress(addressObject) {
-        Snipcart.execute('setBillingAddress', addressObject);
-    }
-
-    function fillSnipCartShippingAddress(addressObject) {
-        Snipcart.execute('setShippingAddress', addressObject);
-    }
-
-    function add3MonthtsToCart() {
-        Snipcart.execute('item.add', {
-            id: '1',
-            name: "3 mois d'abonnement",
-            url: '/',
-            price: 115,
-            description: 'Sélection de bières exclusives finement préparée à chaque mois',
-            quantity: 1,
-            maxQuantity: 1,
-            shippable: true
-        });
-
-        var snipCartAddressObject = {
-            name: $('#new-member-name').val(),
-            address1: $('#shipping-address').val(),
-            country: 'CA',
-            province: 'QC',
-            city: 'Québec',
-            postalCode: $('#postal-code').val()
-        };
-
-        if (!buyAsGift) {
-            fillSnipCartBillingAddress(snipCartAddressObject);
-        }
-        fillSnipCartShippingAddress(snipCartAddressObject);
-    }
-
-    $('#subscribe-button').click(function (event) {
-        event.stopPropagation();
-        if (subscribeFormIsValid()) {
-            validateProvidedAddressIsInBound(add3MonthtsToCart);
-        } else {
-            alert('veuillez remplir le formulaire');
-        }
-    });
+//    Quotes
 
     function getNextDegustationQuote() {
         quoteIndex++;
@@ -111,22 +29,65 @@
         swapDegustationQuote();
     }, 3000);
 
-    $('#buy-gift, #buy-membership, #buy-gift-how, #buy-membership-how').click(function () {
-        $('.step0').addClass('hidden');
-        $('.step1').removeClass('hidden');
+//    pint animation & stats;
+
+    var KeenClient = new Keen({
+//TODO: get those configs from server when we get one
+        projectId: "546e63ce80a7bd58f8889388",       // String (required)
+        writeKey: "0e2536115f8e068db6b9c03137916853cf10272b24abcf04e908b6ebea2903f2017bb7f71523d254ca38f068bb9e4abd6a984aeade597bf91cbbc51a20ed3649ac4186cc02aa748ef31c14dbc0d9fbfb4731a7b276a0c36923c8cd1c387cecfab1789ed5171ce36678586d9b52c529a6",
+        readKey: "3e0329665881abd77038e7b513aa00615eab4ac6eb1e6027c67e219e84c14c82467dc0bed1380da972cbfc788c2c27a540b6acfa8475ef258113179201152c58c31ca6c6933de287e964064db6362f1bd98410a0c8c210398c293f00746d4bc4d0c80482c8bb1fe7e2c731e954acd4a5"
     });
 
-    $('#buy-gift, #buy-gift-how').click(function () {
-        buyAsGift = true;
+    function incrementPintCount() {
+        totalPouredPints++;
+        $('#pint-counts').text(totalPouredPints);
+    }
+
+    function updatePintCount(newCount) {
+        var interval = window.setInterval(function () {
+            if (newCount > totalPouredPints) {
+                incrementPintCount();
+            } else {
+                window.clearInterval(interval);
+            }
+        });
+    }
+
+    function getPintCount() {
+        var countQuery = new Keen.Query('count', {eventCollection: KEEN_PINTS_COLLECTION_NAME});
+
+        KeenClient.run(countQuery, function (response) {
+            updatePintCount(response.result + BASE_POURED_PINTS);
+        });
+    }
+
+    function sendEventToKeen() {
+        KeenClient.addEvent(KEEN_PINTS_COLLECTION_NAME, {
+            user_ip_address: "${keen.ip}"
+        });
+        incrementPintCount();
+    }
+
+    function animateBeer() {
+        if (!isBeerAnimating) {
+            isBeerAnimating = true;
+            var pourPintButton = $('#pour-pint')
+            pourPintButton.addClass('animate');
+            window.setTimeout(function () {
+                $('#pour-pint').removeClass('animate');
+                isBeerAnimating = false;
+            }, 5000);
+        }
+    }
+
+    $('#pour-a-pint').click(function () {
+        sendEventToKeen();
+        animateBeer();
     });
 
-    $('#buy-membership, #buy-membership-how').click(function () {
-        buyAsGift = false;
-    });
+    Keen.ready(getPintCount);
 
-    Snipcart.execute('bind', 'order.completed', function (data) {
-        console.log('antoine', data);
-    });
+//    Scroll to;
 
     $('a[href*=#]:not([href=#])').click(function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -138,18 +99,6 @@
                 }, 1000);
                 return false;
             }
-        }
-    });
-
-    var isAnimating = false;
-    $('#animate-beer').click(function (event) {
-        if (!isAnimating) {
-            isAnimating = true;
-            $('#pour-pint').addClass('animate');
-            window.setTimeout(function () {
-                $('#pour-pint').removeClass('animate');
-                isAnimating = false;
-            }, 5000);
         }
     });
 })();

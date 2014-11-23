@@ -17,111 +17,104 @@
     <meta property="og:description" content="La confrérie est une communauté d'amateurs de bière de tous niveaux qui mise sur la découverte et le partage plus que sur la connaissance"/>
     <title>la confrérie | club de dégustation</title>
 
-    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <link rel="shortcut icon" href="img/favicon.png">
 
-    <script type="text/javascript" src="http://leaverou.github.io/prefixfree/prefixfree.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-
+    <!--<script type="text/javascript" src="js/prefixfree.min.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link id="snipcart-theme" type="text/css"href="https://app.snipcart.com/themes/base/snipcart.css" rel="stylesheet">
+
+    <script type="text/javascript">
+      !function(a,b){a("Keen","https://d26b395fwzu5fz.cloudfront.net/3.1.0/keen.min.js",b)}(function(a,b,c){var d,e,f;c["_"+a]={},c[a]=function(b){c["_"+a].clients=c["_"+a].clients||{},c["_"+a].clients[b.projectId]=this,this._config=b},c[a].ready=function(b){c["_"+a].ready=c["_"+a].ready||[],c["_"+a].ready.push(b)},d=["addEvent","setGlobalProperties","trackExternalLink","on"];for(var g=0;g<d.length;g++){var h=d[g],i=function(a){return function(){return this["_"+a]=this["_"+a]||[],this["_"+a].push(arguments),this}};c[a].prototype[h]=i(h)}e=document.createElement("script"),e.async=!0,e.src=b,f=document.getElementsByTagName("script")[0],f.parentNode.insertBefore(e,f)},this);
+    </script>
 </head>
 
 <body>
-    <header id="top">
-        <div class="text-center">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6 col-lg-push-6 col-md-4 col-md-push-8 col-sm-8 col-sm-push-2">
-                        <div id="logo">
-                            <img class="img-responsive" src="assets/img/logo.png">
-                        </div>
-                    </div>
-                    <div class="signup col-lg-5 col-lg-offset-1 col-lg-pull-6 col-md-7 col-md-offset-1 col-md-pull-4 col-sm-8 col-sm-offset-2 text-left">
-                        <div class="step0">
-                            <h1>Le club de <div id="degustation-quote">dégustation</div> de bières du monde</h1>
-                            <p>Gardée secrète depuis ses débuts, la confrérie est une communauté d'amateurs de bière qui ouvrira ses portes au public si un intérêt se manifeste </p>
+    <header id="top" class="text-center container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-lg-push-6 col-md-4 col-md-push-8 col-sm-8 col-sm-push-2">
+                <div id="logo">
+                    <img class="img-responsive" src="img/logo.png">
+                </div>
+            </div>
+            <div class="signup col-lg-5 col-lg-offset-1 col-lg-pull-6 col-md-7 col-md-offset-1 col-md-pull-4 col-sm-8 col-sm-offset-2 text-left">
+                <div class="step0">
+                    <h1>Le club de <div id="degustation-quote">dégustation</div> de bières du monde</h1>
+                    <p>Gardée secrète depuis ses débuts, la confrérie est une communauté d'amateurs de bière qui ouvrira ses portes au public si un intérêt se manifeste </p>
 <!--list of what's included goes here-->
-                            <div class="button-container">
-                                <button id="buy-membership" class="btn btn-primary btn-lg">Devenir membre</button>
-                                <button id="buy-gift" class="btn btn-primary btn-lg ">Offrir</button>
-                            </div>
-                        </div>
-                        <div class="step1 hidden">
-                            <h1>Merci pour votre intérêt!</h1>
-                            <p>La confrérie ouvrira bientôt ses portes au grand public. Entre temps, savourez une bière entre amis!</p>
-                            <a href="#contact" class="btn btn-primary btn-lg">restons en contact&nbsp!</a>
-                        </div>
-                        <div class="hidden">
-                            <form id="addressForm">
-                                <div class="form-group">
-                                    <label for="new-member-name">Nom du nouveau membre</label>
-                                    <input type="text" id="new-member-name" class="form-control" placeholder="Monseigneur Montgomery">
-                                </div>
-                                <div class="form-group">
-                                    <label for="shipping-address">Adresse de livraison</label>
-                                    <input type="text" id="shipping-address" class="form-control" placeholder="33 rue de la Confrérie">
-                                </div>
-                                <div class="form-group">
-                                    <label for="shipping-city">Ville</label>
-                                    <input type="text" id="shipping-city" class="form-control" placeholder="Québec">
-                                </div>
-                                <div class="form-group">
-                                    <label for="postal-code">Code postal</label>
-                                    <input type="text" id="postal-code" class="form-control" placeholder="G1G 1G1">
-                                </div>
-                                <a id="subscribe-button"
-                                   href="#"
-                                   class="snipcart-add-item btn btn-primary pull-right"
-                                   data-item-id="1"
-                                   data-item-name="3 mois d'abonnement"
-                                   data-item-price="115.00"
-                                   data-item-url="/">
-                                    GO
-                                </a>
-                            </form>
-                        </div>
-                        <div class="step2 hidden">
-                            <h2>Merci ! </h2>
-                                <a href="#contact" class="btn btn-primary btn-lg">Démontrez votre intérêt</a>
-                            </div>
-                        </div>
+                    <div class="button-container">
+                        <button id="buy-membership" class="btn btn-primary btn-lg">Devenir membre</button>
+                        <button id="buy-gift" class="btn btn-primary btn-lg ">Offrir</button>
                     </div>
+                </div>
+                <div class="step1 hidden">
+                    <form id="addressForm">
+                        <div class="form-group">
+                            <label for="new-member-name">Nom du nouveau membre</label>
+                            <input type="text" id="new-member-name" class="form-control" placeholder="Monseigneur Montgomery">
+                        </div>
+                        <div class="form-group">
+                            <label for="shipping-address">Adresse de livraison</label>
+                            <input type="text" id="shipping-address" class="form-control" placeholder="33 rue de la Confrérie">
+                        </div>
+                        <div class="form-group">
+                            <label for="shipping-city">Ville</label>
+                            <input type="text" id="shipping-city" class="form-control" placeholder="Québec">
+                        </div>
+                        <div class="form-group">
+                            <label for="postal-code">Code postal</label>
+                            <input type="text" id="postal-code" class="form-control" placeholder="G1G 1G1">
+                        </div>
+                        <a id="subscribe-button"
+                           href="#"
+                           class="snipcart-add-item btn btn-primary pull-right"
+                           data-item-id="1"
+                           data-item-name="3 mois d'abonnement"
+                           data-item-price="115.00"
+                           data-item-url="/">
+                            GO
+                        </a>
+                    </form>
+                </div>
+                <div class="step2 hidden">
+                    <h2>Merci ! </h2>
+                        <a href="#contact" class="btn btn-primary btn-lg">Démontrez votre intérêt</a>
+                        <a href="#pour-pint" class="btn btn-primary btn-lg">Démontrez votre intérêt</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="pour-pint">
-        <div class="container">
-            <div class="section-title text-center">
-                <h2>Vous voulez démontrer votre intérêt?</h2>
+    <section id="pour-pint" class="container">
+        <div class="section-title text-center">
+            <!--TODO: REPLACE THIS WITH A VERY NICE TITLE-->
+            <h2>Intéressé, Montrez-le !</h2>
+            <div class="title-line"></div>
+        </div>
+        <div id="action">
+            <div id="keg">
+                <div id="bottle"></div>
+                <div id="pipe"></div>
+                <div id="pipe-front"></div>
             </div>
-            <div id="action">
-                <div id="keg">
-                    <div id="bottle"></div>
-                    <div id="pipe"></div>
-                    <div id="pipe-front"></div>
+            <div class="glass">
+                <div class="beer"></div>
+                <div class="handle">
+                    <div class="top-right-handle"></div>
+                    <div class="bottom-right-handle"></div>
                 </div>
-                <div class="glass">
-                    <div class="beer"></div>
-                    <div class="handle">
-                        <div class="top-right-handle"></div>
-                        <div class="bottom-right-handle"></div>
-                    </div>
-                    <div class="front-glass"></div>
-                </div>
-                <!--<div id="table"></div>-->
+                <div class="front-glass"></div>
             </div>
-            <div class="button-container text-center">
-                <button id="animate-beer" class="btn btn-primary btn-lg">Versez-vous une bonne bière!</button>
-            </div>
-
-            <div class="section-title text-center">
-                <h3>Bières versées jusqu'à présent</h3>
-                <h3>100000</h3>
-            </div>
+        </div>
+        <div class="button-container text-center">
+            <button id="pour-a-pint" class="btn btn-primary btn-lg">Versez-vous en une !</button>
+        </div>
+        <div class="col-xs-12 pint-count-container text-center">
+            <div id="pint-counts"></div>
+            <h3>bières ont été versées</h3>
+            <p class="small-text">* Plus de bières sont versées, plus la confrerie sera tentée d'ouvrir ses portes au public</p>
         </div>
     </section>
 
@@ -172,7 +165,7 @@
         <div class="container-fluid hidden-sm hidden-xs">
             <div class="row">
                 <div class="col-md-5">
-                    <img src="assets/img/beer_tasting.jpg">
+                    <img src="img/beer_tasting.jpg">
                 </div>
                 <div class="col-md-5 col-md-offset-1">
                     <div class="section-title text-center">
@@ -233,15 +226,15 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoMlngKPshe4FClImU09HvWqnccXFoNLU"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" id="snipcart" src="https://app.snipcart.com/scripts/snipcart.js" data-api-key="MWU1MzQwZDktZjljMy00ZWRjLTg2YjQtMDVkYWFjMjk3YjAw"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="js/app.js"></script>
     <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-56762595-1', 'auto');
-    ga('send', 'pageview');
+        ga('create', 'UA-56762595-1', 'auto');
+        ga('send', 'pageview');
     </script>
 </body>
 </html>
