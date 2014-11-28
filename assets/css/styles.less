@@ -2,7 +2,7 @@
 @dark-gray-color: #1e1e1e;
 @burgundy-color: #843b34;
 @base-color: #f7f5ea;
-@darkened-base-color: darken(@base-color, 3%);
+@darkened-base-color: #f5eadb;
 
 @import "beer/pour-me-some.less";
 
@@ -165,6 +165,9 @@ body {
                 margin: 0;
                 font-size: 24px;
                 line-height: 2vw;
+                strong {
+//                    color: @gold-color;
+                }
             }
         }
     }
@@ -253,14 +256,8 @@ body {
 }
 
 @media all and ( max-width: 1200px ) {
-    body {
-        #what-we-do {
-            .row > div {
-                p {
-                    font-size: 20px;
-                }
-            }
-        }
+    body #what-we-do .row > div p {
+        font-size: 20px;
     }
 }
 
