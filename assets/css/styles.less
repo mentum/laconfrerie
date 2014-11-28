@@ -2,6 +2,7 @@
 @dark-gray-color: #1e1e1e;
 @burgundy-color: #843b34;
 @base-color: #f7f5ea;
+@darkened-base-color: darken(@base-color, 3%);
 
 @import "beer/pour-me-some.less";
 
@@ -148,6 +149,24 @@ body {
         }
     }
 
+    #what-we-do {
+        background-color: @darkened-base-color;
+        & > div {
+            padding: 100px 50px;
+            height: 500px;
+            &:nth-child(2), &:nth-child(4) {
+                background-color: @base-color;
+            }
+            img {
+                height: 100px;
+                margin-bottom: 75px;
+            }
+            p {
+                margin: 0;
+            }
+        }
+    }
+
     #how-it-works {
         padding-top: 150px;
         padding-bottom: 150px;
@@ -247,7 +266,6 @@ body {
             .signup {
                 margin-top: 20px;
                 margin-bottom: 50px;
-//                text-align: center;
             }
         }
         #philosophy {
@@ -258,10 +276,43 @@ body {
     }
 }
 
+@media all and ( max-width: 1200px ) {
+    body {
+        #what-we-do {
+            & > div {
+                height: 400px;
+                padding: 50px;
+                img {
+                    margin-bottom: 50px;
+                }
+                p {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
+
 @media all and ( min-width: 991px ) {
     body header {
         .signup {
             max-width: 550px;
+        }
+    }
+}
+
+@media all and ( max-width: 991px ) {
+    body {
+        #what-we-do {
+            & > div {
+                &:nth-child(3) {
+                    background-color: @base-color;
+                }
+                &:nth-child(4) {
+                    background-color: @darkened-base-color;
+                }
+            }
         }
     }
 }
@@ -280,6 +331,18 @@ body {
             }
             .title-line {
                 display: none;
+            }
+        }
+        #what-we-do {
+            padding: 0;
+            & > div {
+                height: 300px;
+                &:nth-child(3) {
+                    background-color: @darkened-base-color;
+                }
+                &:nth-child(4) {
+                    background-color: @base-color;
+                }
             }
         }
 
