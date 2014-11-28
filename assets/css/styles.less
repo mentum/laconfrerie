@@ -151,7 +151,7 @@ body {
 
     #what-we-do {
         background-color: @darkened-base-color;
-        & > div {
+        .row > div {
             padding: 100px 50px;
             height: 500px;
             &:nth-child(2), &:nth-child(4) {
@@ -250,6 +250,23 @@ body {
     }
 }
 
+@media all and ( max-width: 1200px ) {
+    body {
+        #what-we-do {
+            .row > div {
+                height: 400px;
+                padding: 50px;
+                img {
+                    margin-bottom: 50px;
+                }
+                p {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
 @media all and ( max-width: 991px ) {
     body {
         #how-it-works {
@@ -276,24 +293,6 @@ body {
     }
 }
 
-@media all and ( max-width: 1200px ) {
-    body {
-        #what-we-do {
-            & > div {
-                height: 400px;
-                padding: 50px;
-                img {
-                    margin-bottom: 50px;
-                }
-                p {
-                    font-size: 22px;
-                }
-            }
-        }
-    }
-}
-
-
 @media all and ( min-width: 991px ) {
     body header {
         .signup {
@@ -305,7 +304,7 @@ body {
 @media all and ( max-width: 991px ) {
     body {
         #what-we-do {
-            & > div {
+            .row > div {
                 &:nth-child(3) {
                     background-color: @base-color;
                 }
@@ -317,7 +316,7 @@ body {
     }
 }
 
-@media all and ( max-width: 768px ) {
+@media all and ( max-width: 767px ) {
     body {
         section, section#how-it-works {
             padding-top: 50px;
@@ -334,9 +333,10 @@ body {
             }
         }
         #what-we-do {
-            padding: 0;
-            & > div {
-                height: 300px;
+            padding-top: 0;
+            padding-bottom: 0;
+            .row > div {
+                height: 325px;
                 &:nth-child(3) {
                     background-color: @darkened-base-color;
                 }
