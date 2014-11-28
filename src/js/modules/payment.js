@@ -1,7 +1,12 @@
 var validateIsInBound = require('./validate-geodistance');
+var keen = require('./keen-client');
 
 var buyAsGift = false;
 var orderComplete = false;
+
+// TODO : 
+// before allowing the user to subscribe, validate the intive code
+
 
 var subscribeFormIsValid = function () {
     return (isFormInputValid('#new-member-name') && isFormInputValid('#shipping-address') && isFormInputValid('#shipping-city') && isFormInputValid('#postal-code'));
@@ -77,5 +82,12 @@ Snipcart.execute('bind', 'cart.closed', function() {
 });
 
 Snipcart.execute('bind', 'order.completed', function (data) {
+    var subscriber = {
+        memberCode : '1234',    // TODO : generate new member code
+        email : data.billingAddress.email
+        inviteCode : 'aninvite'  //TODO : append invite code
+    }
+
+    keen.client.addEvent(keen.SUBSCRIBER_COLLECTION_NAME, subscriber)
     orderComplete = true;
 });
