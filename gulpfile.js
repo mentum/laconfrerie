@@ -1,3 +1,5 @@
+require('./gulp/configs');
+
 var gulp = require('gulp'),
     less = require('gulp-less'),
     minifyCss = require('gulp-minify-css'),
@@ -5,56 +7,45 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat');
 
-var PATHS = {
-    assets: 'assets/',
-    styles: 'css/',
-    javascripts: 'js/*.js',
-    images: 'img/*',
-    fonts: 'fonts/*',
-    index: 'index.html',
-    dist: 'dist/',
-    cname: 'CNAME'
-};
-
 gulp.task('styles', function () {
     gulp.src([
-            PATHS.assets + PATHS.styles + 'styles.less',
-            PATHS.assets + PATHS.styles + 'bootstrap-less/bootstrap.less',
-            PATHS.assets + PATHS.styles + '*.css'
+            configs.paths.styles + 'styles.less',
+            configs.paths.styles + 'bootstrap-less/bootstrap.less',
+            configs.paths.styles + '*.css'
     ])
         .pipe(less())
         .pipe(minifyCss())
-        .pipe(gulp.dest(PATHS.dist + 'css/'));
+        .pipe(gulp.dest(configs.paths.dest + 'css/'));
 
-    gulp.src(PATHS.styles + '*.css')
-        .pipe(gulp.dest(PATHS.dist + 'css/'));
+    gulp.src(configs.paths.styles + '*.css')
+        .pipe(gulp.dest(configs.paths.dest + 'css/'));
 });
 
 gulp.task('views', function () {
-    gulp.src(PATHS.index)
-        .pipe(gulp.dest(PATHS.dist));
+    gulp.src(configs.paths.index)
+        .pipe(gulp.dest(configs.paths.dest));
 });
 
 gulp.task('cname', function () {
-    gulp.src(PATHS.cname)
-        .pipe(gulp.dest(PATHS.dist));
+    gulp.src(configs.paths.cname)
+        .pipe(gulp.dest(configs.paths.dest));
 });
 
 gulp.task('scripts', function () {
-    gulp.src([PATHS.assets + PATHS.javascripts])
+    gulp.src([configs.paths.scripts])
         .pipe(concat('app.js'))
         .pipe(uglify())
-        .pipe(gulp.dest(PATHS.dist + 'js/'));
+        .pipe(gulp.dest(configs.paths.dest + 'js/'));
 });
 
 gulp.task('images', function () {
-    gulp.src(PATHS.assets + PATHS.images)
-        .pipe(gulp.dest(PATHS.dist + 'img/'));
+    gulp.src(configs.paths.images)
+        .pipe(gulp.dest(configs.paths.dest + 'img/'));
 });
 
 gulp.task('fonts', function () {
-    gulp.src(PATHS.assets + PATHS.fonts)
-        .pipe(gulp.dest(PATHS.dist + 'fonts/'));
+    gulp.src(configs.paths.fonts)
+        .pipe(gulp.dest(configs.paths.dest + 'fonts/'));
 });
 
 gulp.task('build', [
@@ -67,9 +58,9 @@ gulp.task('build', [
 ]);
 
 gulp.task('watch', function () {
-    gulp.watch([PATHS.assets + PATHS.styles + '**/*.less'], ['styles']);
-    gulp.watch(PATHS.index, ['views']);
-    gulp.watch([PATHS.assets + PATHS.javascripts], ['scripts']);
+    gulp.watch([configs.paths.styles + '**/*.less'], ['styles']);
+    gulp.watch(configs.paths.index, ['views']);
+    gulp.watch([configs.paths.scripts], ['scripts']);
 });
 
 gulp.task('dev', [
@@ -78,8 +69,9 @@ gulp.task('dev', [
 ]);
 
 gulp.task('pushToGhPages', function () {
-    //return gulp.src([PATHS.cname, PATHS.dist + '/**/*', PATHS.index])
-    return gulp.src(PATHS.dist)
+    //return gulp.src([configs.paths.cname, configs.paths.dest + '/**/*', configs.paths.index])
+    // TODO : create a cname file from configs
+    return gulp.src(configs.paths.dest)
         .pipe(deploy());
 });
 
