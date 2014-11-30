@@ -6,39 +6,39 @@ var addToCart = require('./payment');
 var isAccessKeyValid = false;
 
 function validateAccessKey(accessKey) {
-	var deffered = Q.defer();
+    var deffered = Q.defer();
 
-	var keenQueryParams = {
-		eventCollection: keen.SUBSCRIBER_COLLECTION_NAME,
-    	filters: [{property_name:"recruiterKey", operator:"eq", property_value: accessKey}]
+    var keenQueryParams = {
+        eventCollection: keen.SUBSCRIBER_COLLECTION_NAME,
+        filters: [{property_name:"recruiterKey", operator:"eq", property_value: accessKey}]
     }
 
     var keyCountQuery = new Keen.Query('count', keenQueryParams);
     keen.client.run(keyCountQuery, function (response) {
-    	if (response.result > 0) {
-    		isAccessKeyValid = true;
-    		deffered.resolve();
-    	} else {
-    		deffered.reject("La clé d'acces est invalide");
-    	}
+        if (response.result > 0) {
+            isAccessKeyValid = true;
+            deffered.resolve();
+        } else {
+            deffered.reject("La clé d'acces est invalide");
+        }
     });
 
-	return deffered.promise;
+    return deffered.promise;
 }
 
 function showSubscriptionForm() {
-	$('.step1').addClass('hidden');
-	$('.step2').removeClass('hidden');
+    $('.step1').addClass('hidden');
+    $('.step2').removeClass('hidden');
 }
 
 $('#submit-access-key').click(function () {
-	var accessKey = $('#access-key').val();
+    var accessKey = $('#access-key').val();
 
-	validateAccessKey(accessKey)
-		.then(showSubscriptionForm)
-		.fail(function(reason){
-			window.alert(reason);
-		});
+    validateAccessKey(accessKey)
+        .then(showSubscriptionForm)
+        .fail(function(reason){
+            window.alert(reason);
+        });
 });
 
 function subscribeFormIsValid () {
@@ -60,6 +60,6 @@ $('#subscribe-button').click(function (event) {
 });
 
 $('#buy-membership').click(function(){
-	$('.step0').addClass('hidden');
-	$('.step1').removeClass('hidden');
+    $('.step0').addClass('hidden');
+    $('.step1').removeClass('hidden');
 });
