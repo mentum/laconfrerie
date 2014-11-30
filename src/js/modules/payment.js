@@ -19,14 +19,7 @@ var subscribeFormIds = {
 // before allowing the user to subscribe, validate the invite code
 
 var validateSubscribeForm = function () {
-    var formIsValid = true;
-
-    for(var i = 0; i < subscribeFormIds.input.length; i++) {
-        var isValidInput = validateInput(subscribeFormIds.input[i]);
-        if(!isValidInput) {
-            formIsValid = false;
-        }
-    }
+    var formIsValid = validateInputs();
 
     if(formIsValid) {
         $(subscribeFormIds.errorMessage).empty();
@@ -37,14 +30,20 @@ var validateSubscribeForm = function () {
     return formIsValid;
 };
 
-function validateInput(id) {
-    var isValid = isFormInputValid(id);
-    if(isValid) {
-        $(id).removeClass('invalid');
-    } else {
-        $(id).addClass('invalid');
-    }
-    return isValid;
+
+function validateInputs() {
+    var areInputsValid = true;
+
+    subscribeFormIds.input.forEach(function(inputId) {
+        if(isFormInputValid(inputId)) {
+            $(inputId).removeClass('invalid');
+        } else {
+            $(inputId).addClass('invalid');
+            areInputsValid = false;
+        }
+    });
+    
+    return areInputsValid;
 }
 
 function isFormInputValid(id) {
