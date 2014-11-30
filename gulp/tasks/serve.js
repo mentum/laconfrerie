@@ -5,5 +5,5 @@ var gulp = require('gulp'),
 var staticServer = connect();
 
 module.exports = gulp.task('serve', function (next) {
-  staticServer.use(serveStatic(configs.paths.dest)).listen(configs.ports.staticServer, next);
+	staticServer.use(serveStatic(configs.paths.dest)).listen(configs.ports.staticServer, next);
 });
