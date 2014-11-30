@@ -2,7 +2,6 @@ var crypto = require('crypto');
 var validateIsInBound = require('./validate-geodistance');
 var keen = require('./keen-client');
 
-var BASE_MEMBER_CODE = 'CONF'
 var buyAsGift = false;
 var orderComplete = false;
 
@@ -75,20 +74,19 @@ $('#buy-membership, #buy-membership-how').click(function () {
     buyAsGift = false;
 });
 
-function generateRecruiteKey(email){
+function generateRecruiterKey(email){
     var hash = crypto.createHash('md5');
-    var hashedEmail = hash.update(email).digest('hex');
     
-    return BASE_MEMBER_CODE.concat('-', hashedEmail.substring(0,6));
+    return hash.update(email).digest('hex').substring(0,5);
 };
 
 Snipcart.execute('bind', 'order.completed', function (data) {
-    var memberCode = generateRecruiteKey(data.billingAddress.email);
+    var recruiterKey = generateRecruiterKey(data.billingAddress.email);
     
     var subscriber = {
         accessKey : 'an access key',
         email : data.billingAddress.email,
-        recruitKey : memberCode
+        recruiterKey : recruiterKey
     }
 
     keen.client.addEvent(keen.SUBSCRIBER_COLLECTION_NAME, subscriber)
