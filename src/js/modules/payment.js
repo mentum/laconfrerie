@@ -1,3 +1,4 @@
+var crypto = require('crypto');
 var validateIsInBound = require('./validate-geodistance');
 var keen = require('./keen-client');
 
@@ -6,7 +7,6 @@ var orderComplete = false;
 
 // TODO : 
 // before allowing the user to subscribe, validate the intive code
-
 
 var subscribeFormIsValid = function () {
     return (isFormInputValid('#new-member-name') && isFormInputValid('#shipping-address') && isFormInputValid('#shipping-city') && isFormInputValid('#postal-code'));
@@ -74,20 +74,28 @@ $('#buy-membership, #buy-membership-how').click(function () {
     buyAsGift = false;
 });
 
+function generateRecruiterKey(email){
+    var hash = crypto.createHash('md5');
+    
+    return hash.update(email).digest('hex').substring(0,5);
+};
+
+Snipcart.execute('bind', 'order.completed', function (data) {
+    var recruiterKey = generateRecruiterKey(data.billingAddress.email);
+    
+    var subscriber = {
+        accessKey : 'an access key',
+        email : data.billingAddress.email,
+        recruiterKey : recruiterKey
+    }
+
+    keen.client.addEvent(keen.SUBSCRIBER_COLLECTION_NAME, subscriber)
+    orderComplete = true;
+});
+
 Snipcart.execute('bind', 'cart.closed', function() {
     if(orderComplete){
         $('.step0, .step1').addClass('hidden');
         $('.step2').removeClass('hidden');
     }
-});
-
-Snipcart.execute('bind', 'order.completed', function (data) {
-    var subscriber = {
-        memberCode : '1234',    // TODO : generate new member code
-        email : data.billingAddress.email
-        inviteCode : 'aninvite'  //TODO : append invite code
-    }
-
-    keen.client.addEvent(keen.SUBSCRIBER_COLLECTION_NAME, subscriber)
-    orderComplete = true;
 });
