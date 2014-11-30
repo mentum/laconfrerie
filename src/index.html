@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
     <link id="snipcart-theme" type="text/css"href="https://app.snipcart.com/themes/base/snipcart.css" rel="stylesheet">
 
     <script type="text/javascript">
@@ -42,14 +43,27 @@
             <div class="signup col-lg-5 col-lg-offset-1 col-lg-pull-6 col-md-7 col-md-offset-1 col-md-pull-4 col-sm-8 col-sm-offset-2 text-left">
                 <div class="step0">
                     <h1>Le club de <div id="degustation-quote">dégustation</div> de bières du monde</h1>
-                    <p>Gardée secrète depuis ses débuts, la confrérie est une communauté d'amateurs de bière qui ouvrira ses portes au public si un intérêt se manifeste </p>
-<!--list of what's included goes here-->
+                    <p>Amateur de bière? Recevez et savourez une nouvelle sélection à chaque mois.</p>
                     <div class="button-container">
                         <button id="buy-membership" class="btn btn-primary btn-lg">Devenir membre</button>
-                        <button id="buy-gift" class="btn btn-primary btn-lg ">Offrir</button>
                     </div>
                 </div>
                 <div class="step1 hidden">
+                    <p>La confrérie accueille actuellement 50 nouveaux membres.</p>
+                    <p>Vous devez être invité par un membre pour pouvoir joindre.</p>
+                    <form id="accesCodeForm">
+                        <div class="form-group">
+                            <label for="access-code">Code d'accès</label>
+                            <input type="text" id="access-code" class="form-control">
+                        </div>
+                        <a id="access-code-button"
+                           href="#"
+                           class="btn btn-primary pull-right">
+                           inscription
+                        </a>
+                    </form>
+                </div>
+                <div class="step2 hidden">
                     <h2>Inscription</h2>
                     <form id="addressForm">
                         <div class="form-group">
@@ -79,7 +93,7 @@
                         </a>
                     </form>
                 </div>
-                <div class="step2 hidden">
+                <div class="step3 hidden">
                     <div class="row">
                         <div class="col-xs-10">
                             <h2>Merci de votre intérêt pour la bonne bière!</h2>
@@ -115,6 +129,27 @@
             </div>
         </div>
     </header>
+
+    <section id="what-we-do" class="container-fluid text-center">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <img src="img/community.png">
+                <p>Obtenez <strong>votre place</strong> au sein du cercle d'amateurs de bière</p>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="img/ticket.png">
+                <p>Cotoyez d'autres adeptes lors <strong>d'événements exclusifs</strong></p>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="img/cheers.png">
+                <p>Participez au rituel collectif</br><strong>#biereduvendredi</strong></p>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="img/key.png">
+                <p>Découvrez les secrets de la </br><strong>bière artisanale</strong></p>
+            </div>
+        </div>
+    </section>
 
     <section id="how-it-works" class="container">
         <div class="section-title text-center">
@@ -155,7 +190,6 @@
         </div>
         <div id="buy-how" class="row text-center">
             <a href="#top" id="buy-membership-how" class="btn btn-primary btn-lg">Devenir membre</a>
-            <a href="#top" id="buy-gift-how" class="btn btn-primary btn-lg ">Offrir en cadeau</a>
         </div>
     </section>
 
@@ -168,7 +202,7 @@
                 <div class="col-md-5 col-md-offset-1">
                     <div class="section-title text-center">
                         <h2>Notre</h2></br>
-                        <h2 class="two-line-title">philosophie</h2>
+                        <h2 class="two-line-title">raison d'être</h2>
                         <div class="title-line"></div>
                     </div>
                     <div></div>
