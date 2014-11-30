@@ -14,7 +14,7 @@ function updatePintCount(newCount) {
         } else {
             window.clearInterval(interval);
         }
-    });
+    }, 0);
 }
 
 function getPintCount() {

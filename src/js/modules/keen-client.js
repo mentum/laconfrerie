@@ -1,6 +1,6 @@
 module.exports = {
 	PINTS_COLLECTION_NAME : 'poured-pints',
-	SUBSCRIBER_COLLECTION_NAME : 'subscribe',
+	SUBSCRIBER_COLLECTION_NAME : 'subscriptions',
 	client : new Keen({
 	//TODO: get those configs from server when we get one
 	    projectId: "546e63ce80a7bd58f8889388",
