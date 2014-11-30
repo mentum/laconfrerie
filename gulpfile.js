@@ -9,13 +9,13 @@ tasks.forEach(function(task){
 });
 
 gulp.task('build', function(){
-    runseq(['scripts', 'styles', 'static']);
+    runseq('scripts', 'styles', 'static');
 });
 
 gulp.task('dev', function(){
-    runseq(['build', 'watch']);
+    runseq('build', 'watch', 'serve');
 });
 
 gulp.task('deploy', function(){
-    runseq(['build', 'ghPush']);
+    runseq('build', 'ghPush');
 });
