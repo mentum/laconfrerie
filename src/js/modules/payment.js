@@ -5,12 +5,46 @@ var keen = require('./keen-client');
 var buyAsGift = false;
 var orderComplete = false;
 
-// TODO : 
-// before allowing the user to subscribe, validate the intive code
-
-var subscribeFormIsValid = function () {
-    return (isFormInputValid('#new-member-name') && isFormInputValid('#shipping-address') && isFormInputValid('#shipping-city') && isFormInputValid('#postal-code'));
+var subscribeFormIds = {
+    input: [
+        '#new-member-name',
+        '#shipping-address',
+        '#shipping-city',
+        '#postal-code'
+    ],
+    errorMessage: '#addressFormError'
 };
+
+// TODO :
+// before allowing the user to subscribe, validate the invite code
+
+var validateSubscribeForm = function () {
+    var formIsValid = validateInputs();
+
+    if(formIsValid) {
+        $(subscribeFormIds.errorMessage).empty();
+    } else {
+        $(subscribeFormIds.errorMessage).text("Tous les champs sont obligatoires.");
+    }
+
+    return formIsValid;
+};
+
+
+function validateInputs() {
+    var areInputsValid = true;
+
+    subscribeFormIds.input.forEach(function(inputId) {
+        if(isFormInputValid(inputId)) {
+            $(inputId).removeClass('invalid');
+        } else {
+            $(inputId).addClass('invalid');
+            areInputsValid = false;
+        }
+    });
+    
+    return areInputsValid;
+}
 
 function isFormInputValid(id) {
     return $(id).val() != '';
@@ -51,13 +85,16 @@ function add3MonthtsToCart() {
     fillSnipCartShippingAddress(snipCartAddressObject);
 }
 
+$(subscribeFormIds.input.join(',')).on('focus', function() {
+    $(this).removeClass('invalid');
+});
+
 $('#subscribe-button').click(function (event) {
     event.stopPropagation();
-    if (subscribeFormIsValid()) {
+
+    if (validateSubscribeForm()) {
         var destination = $('#shipping-address').val() + $('#postal-code').val();
         validateIsInBound(destination, add3MonthtsToCart);
-    } else {
-        alert('veuillez remplir le formulaire');
     }
 });
 
@@ -89,7 +126,7 @@ Snipcart.execute('bind', 'order.completed', function (data) {
         recruiterKey : recruiterKey
     }
 
-    keen.client.addEvent(keen.SUBSCRIBER_COLLECTION_NAME, subscriber)
+    keen.client.addEvent(keen.SUBSCRIBER_COLLECTION_NAME, subscriber);
     orderComplete = true;
 });
 

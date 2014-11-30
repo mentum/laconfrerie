@@ -67,6 +67,17 @@ body {
         color: @dark-gray-color;
     }
 
+    input.form-control {
+        &:focus {
+            outline: none;
+            box-shadow: none;
+            border-color: gray;
+        }
+        &.invalid {
+            border-color: red;
+        }
+    }
+
     header {
         background: @base-color;
         background-repeat: no-repeat;
@@ -118,6 +129,13 @@ body {
         }
         #addressForm {
             padding-top: 25px;
+        }
+        .errorMessageContainer {
+            color: red;
+            margin-bottom: 15px;
+            & ~ * {
+                clear:both;
+            }
         }
     }
 

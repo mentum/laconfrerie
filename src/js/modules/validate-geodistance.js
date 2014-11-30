@@ -1,6 +1,7 @@
 var OFFICES_LAT_LONG = new google.maps.LatLng(46.792194, -71.287216);
 var MAX_DISTANCE_METERS = 15000;
 var gmapsDistanceService = new google.maps.DistanceMatrixService();
+var errorContainerId = "#addressFormError";
 
 function distanceMatrixCallback(successCallback, response, status) {
     if (status == 'OK') {
@@ -9,13 +10,13 @@ function distanceMatrixCallback(successCallback, response, status) {
             if (distance < MAX_DISTANCE_METERS) {
                 successCallback()
             } else {
-                alert('Les stock sont épuisés dans votre région');
+                $(errorContainerId).text("Les stock sont épuisés dans votre région.");
             }
         } else {
-            alert('Il y a eu un problème avec votre adresse');
+            $(errorContainerId).text("Il y a eu un problème avec votre adresse.");
         }
     } else {
-        alert('Il y a eu un problème avec votre adresse');
+        $(errorContainerId).text("Il y a eu un problème avec votre adresse.");
     }
 }
 
