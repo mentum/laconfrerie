@@ -88,7 +88,7 @@ Snipcart.execute('bind', 'order.completed', function (data) {
     var subscriber = {
         accessKey : 'an access key',
         email : data.billingAddress.email,
-        recruiteKey : memberCode
+        recruitKey : memberCode
     }
 
     keen.client.addEvent(keen.SUBSCRIBER_COLLECTION_NAME, subscriber)
