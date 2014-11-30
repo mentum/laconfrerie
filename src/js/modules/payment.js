@@ -5,12 +5,47 @@ var keen = require('./keen-client');
 var buyAsGift = false;
 var orderComplete = false;
 
-// TODO : 
-// before allowing the user to subscribe, validate the intive code
-
-var subscribeFormIsValid = function () {
-    return (isFormInputValid('#new-member-name') && isFormInputValid('#shipping-address') && isFormInputValid('#shipping-city') && isFormInputValid('#postal-code'));
+var subscribeFormIds = {
+    input: [
+        '#new-member-name',
+        '#shipping-address',
+        '#shipping-city',
+        '#postal-code'
+    ],
+    errorMessage: '#addressFormError'
 };
+
+// TODO :
+// before allowing the user to subscribe, validate the invite code
+
+var validateSubscribeForm = function () {
+    var formIsValid = true;
+
+    for(var i = 0; i < subscribeFormIds.input.length; i++) {
+        var isValidInput = validateInput(subscribeFormIds.input[i]);
+        if(!isValidInput) {
+            formIsValid = false;
+        }
+    }
+
+    if(formIsValid) {
+        $(subscribeFormIds.errorMessage).empty();
+    } else {
+        $(subscribeFormIds.errorMessage).text("Tous les champs sont obligatoires.");
+    }
+
+    return formIsValid;
+};
+
+function validateInput(id) {
+    var isValid = isFormInputValid(id);
+    if(isValid) {
+        $(id).removeClass('invalid');
+    } else {
+        $(id).addClass('invalid');
+    }
+    return isValid;
+}
 
 function isFormInputValid(id) {
     return $(id).val() != '';
@@ -51,13 +86,16 @@ function add3MonthtsToCart() {
     fillSnipCartShippingAddress(snipCartAddressObject);
 }
 
+$(subscribeFormIds.input.join(',')).on('focus', function() {
+    $(this).removeClass('invalid');
+});
+
 $('#subscribe-button').click(function (event) {
     event.stopPropagation();
-    if (subscribeFormIsValid()) {
+
+    if (validateSubscribeForm()) {
         var destination = $('#shipping-address').val() + $('#postal-code').val();
         validateIsInBound(destination, add3MonthtsToCart);
-    } else {
-        alert('veuillez remplir le formulaire');
     }
 });
 
@@ -89,7 +127,7 @@ Snipcart.execute('bind', 'order.completed', function (data) {
         recruiterKey : recruiterKey
     }
 
-    keen.client.addEvent(keen.SUBSCRIBER_COLLECTION_NAME, subscriber)
+    keen.client.addEvent(keen.SUBSCRIBER_COLLECTION_NAME, subscriber);
     orderComplete = true;
 });
 
