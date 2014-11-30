@@ -10,5 +10,9 @@ global.configs = {
 		styles: SOURCES_DIR + 'styles/',
 		cname : 'CNAME',
 		dest: 'dist/'
+	},
+	ports : {
+		staticServer : 5555,
+		livereloadServer: 35729
 	}
 }
