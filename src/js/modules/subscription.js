@@ -1,30 +1,8 @@
-var Q = require('q');
-var keen = require('./keen-client');
+var keenService = require('./keen-service');
 var validateIsInBound = require('./validate-geodistance');
 var addToCart = require('./payment');
 
 var isAccessKeyValid = false;
-
-function validateAccessKey(accessKey) {
-    var deffered = Q.defer();
-
-    var keenQueryParams = {
-        eventCollection: keen.SUBSCRIBER_COLLECTION_NAME,
-        filters: [{property_name:"recruiterKey", operator:"eq", property_value: accessKey}]
-    }
-
-    var keyCountQuery = new Keen.Query('count', keenQueryParams);
-    keen.client.run(keyCountQuery, function (response) {
-        if (response.result > 0) {
-            isAccessKeyValid = true;
-            deffered.resolve();
-        } else {
-            deffered.reject("La clé d'acces est invalide");
-        }
-    });
-
-    return deffered.promise;
-}
 
 function showSubscriptionForm() {
     $('.step1').addClass('hidden');
@@ -34,7 +12,7 @@ function showSubscriptionForm() {
 $('#submit-access-key').click(function () {
     var accessKey = $('#access-key').val();
 
-    validateAccessKey(accessKey)
+    keenService.validateAccessKey(accessKey)
         .then(showSubscriptionForm)
         .fail(function(reason){
             window.alert(reason);

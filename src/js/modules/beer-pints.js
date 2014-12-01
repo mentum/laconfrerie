@@ -1,4 +1,4 @@
-var keen = require('./keen-client');
+var keenService = require('./keen-service');
 var totalPouredPints = 0;
 var isBeerAnimating = false;
 
@@ -17,21 +17,6 @@ function updatePintCount(newCount) {
     }, 0);
 }
 
-function getPintCount() {
-    var countQuery = new Keen.Query('count', {eventCollection: keen.PINTS_COLLECTION_NAME});
-
-    keen.client.run(countQuery, function (response) {
-        updatePintCount(response.result);
-    });
-}
-
-function pushPouredBeerEvent() {
-    keen.client.addEvent(keen.PINTS_COLLECTION_NAME, {
-        user_ip_address: "${keen.ip}"
-    });
-    incrementPintCount();
-}
-
 function animateBeer() {
     if (!isBeerAnimating) {
         isBeerAnimating = true;
@@ -45,8 +30,9 @@ function animateBeer() {
 }
 
 $('#pour-a-pint').click(function () {
-    pushPouredBeerEvent();
+    keenService.sendPouredPintEvent();
+    incrementPintCount();
     animateBeer();
 });
 
-Keen.ready(getPintCount);
+keenService.getPouredPintCount().then(updatePintCount);

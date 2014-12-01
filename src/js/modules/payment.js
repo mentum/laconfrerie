@@ -1,5 +1,5 @@
 var crypto = require('crypto');
-var keen = require('./keen-client');
+var keenService = require('./keen-service');
 
 var orderComplete = false;
 
@@ -12,13 +12,13 @@ function generateRecruiterKey(email){
 Snipcart.execute('bind', 'order.completed', function (data) {
     var recruiterKey = generateRecruiterKey(data.billingAddress.email);
     
-    var subscriber = {
+    var subscription = {
         accessKey : $('#access-key').val(),
         email : data.billingAddress.email,
         recruiterKey : recruiterKey
     }
 
-    keen.client.addEvent(keen.SUBSCRIBER_COLLECTION_NAME, subscriber)
+    keenService.sendSubsriptionEvent(subscription);
     orderComplete = true;
 });
 
