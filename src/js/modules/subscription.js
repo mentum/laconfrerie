@@ -2,7 +2,11 @@ var keenService = require('./keen-service');
 var validateIsInBound = require('./validate-geodistance');
 var addToCart = require('./payment');
 
-var isAccessKeyValid = false;
+var subscriptionFormId = '#subscription-form';
+
+function displayError(id, message) {
+    $(id).text(message);
+}
 
 function showSubscriptionForm() {
     $('.step1').addClass('hidden');
@@ -15,25 +19,41 @@ $('#submit-access-key').click(function () {
     keenService.validateAccessKey(accessKey)
         .then(showSubscriptionForm)
         .fail(function(reason){
-            window.alert(reason);
+            displayError('#access-key-error', reason);
         });
 });
 
-function subscribeFormIsValid () {
-    return (isFormInputValid('#new-member-name') && isFormInputValid('#shipping-address') && isFormInputValid('#shipping-city') && isFormInputValid('#postal-code'));
-};
-
-function isFormInputValid(id) {
-    return $(id).val() != '';
+function validateSubscriptionForm() {
+    if (!validateSubscriptionFormIsFilled()) {
+        displayError('#subscription-form-error', 'Tous les champs sont obligatoires.')
+        return false;
+    }
+    return true;
 }
+
+function validateSubscriptionFormIsFilled() {
+    var isFilled = true;
+    $(subscriptionFormId + ' input').each(function() {
+        var input = $(this);
+        if(input.val() == '') {
+            input.addClass('invalid');
+            isFilled = false;
+        }
+    });
+    return isFilled;
+}
+
+$(subscriptionFormId + ' input').on('focus', function() {
+   $(this).removeClass('invalid');
+});
 
 $('#subscribe-button').click(function (event) {
     event.stopPropagation();
-    if (subscribeFormIsValid()) {
+
+    var isSubscriptionFormValid = validateSubscriptionForm();
+    if (isSubscriptionFormValid) {
         var destination = $('#shipping-address').val() + $('#postal-code').val();
         validateIsInBound(destination, addToCart);
-    } else {
-        alert('veuillez remplir le formulaire');
     }
 });
 

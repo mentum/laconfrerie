@@ -55,6 +55,7 @@
                         <label for="access-key">Clé d'accès secrète</label>
                         <input type="text" id="access-key" class="form-control">
                     </div>
+                    <div id="access-key-error" class="error-message pull-left"></div>
                     <button id="submit-access-key"
                        class="btn btn-primary pull-right">
                        inscription
@@ -62,23 +63,24 @@
                 </div>
                 <div class="step2 hidden">
                     <h2>Inscription</h2>
-                    <form id="addressForm">
+                    <form id="subscription-form">
                         <div class="form-group">
                             <label for="new-member-name">Nom du nouveau membre</label>
-                            <input type="text" id="new-member-name" class="form-control" placeholder="Monseigneur Montgomery">
+                            <input type="text" id="new-member-name" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="shipping-address">Adresse de livraison</label>
-                            <input type="text" id="shipping-address" class="form-control" placeholder="33 rue de la Confrérie">
+                            <input type="text" id="shipping-address" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="shipping-city">Ville</label>
-                            <input type="text" id="shipping-city" class="form-control" placeholder="Québec">
+                            <input type="text" id="shipping-city" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="postal-code">Code postal</label>
-                            <input type="text" id="postal-code" class="form-control" placeholder="G1G 1G1">
+                            <input type="text" id="postal-code" class="form-control">
                         </div>
+                        <div id="subscription-form-error" class="error-message pull-left"></div>
                         <a id="subscribe-button"
                            href="#"
                            class="snipcart-add-item btn btn-primary pull-right"
