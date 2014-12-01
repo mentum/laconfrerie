@@ -43,7 +43,7 @@ module.exports = {
 	            isAccessKeyValid = true;
 	            deffered.resolve();
 	        } else {
-	            deffered.reject("La clé d'acces est invalide");
+	            deffered.reject("La clé d'accès est invalide");
 	        }
 	    });
 
