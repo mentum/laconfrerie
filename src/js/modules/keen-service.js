@@ -35,7 +35,7 @@ module.exports = {
 	    var keenQueryParams = {
 	        eventCollection: SUBSCRIBER_COLLECTION_NAME,
 	        filters: [{property_name:"recruiterKey", operator:"eq", property_value: accessKey}]
-	    }
+	    };
 
 	    var keyCountQuery = new Keen.Query('count', keenQueryParams);
 	    keenClient.run(keyCountQuery, function (response) {
@@ -49,4 +49,4 @@ module.exports = {
 
 	    return deffered.promise;
 	}
-}
+};
