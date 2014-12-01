@@ -16,7 +16,7 @@ var ADDRESS_ERROR_MESSAGE = 'Il y a eu un problème avec votre adresse.';
 
 module.exports = {
     validateDestinationIsInBound: function(destination) {
-        var deffered = Q.defer();
+        var deferred = Q.defer();
 
         distanceMatrixParams.destinations = [destination];
 
@@ -25,18 +25,18 @@ module.exports = {
                 if (response.rows[0].elements[0].distance) {
                     var distance = response.rows[0].elements[0].distance.value;
                     if (distance < MAX_DISTANCE_METERS) {
-                        deffered.resolve();
+                        deferred.resolve();
                     } else {
-                        deffered.reject(TOO_FAR_ERROR_MESSAGE);
+                        deferred.reject(TOO_FAR_ERROR_MESSAGE);
                     }
                 } else {
-                    deffered.reject(ADDRESS_ERROR_MESSAGE);
+                    deferred.reject(ADDRESS_ERROR_MESSAGE);
                 }
             } else {
-                deffered.reject(ADDRESS_ERROR_MESSAGE);
+                deferred.reject(ADDRESS_ERROR_MESSAGE);
             }
         });
 
-        return deffered.promise;
+        return deferred.promise;
     }
 };
