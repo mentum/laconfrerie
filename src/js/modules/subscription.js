@@ -1,5 +1,5 @@
 var keenService = require('./keen-service');
-var validateIsInBound = require('./validate-geodistance');
+var validateDestinationIsInBound = require('./geodistance-service');
 var addToCart = require('./payment');
 
 var FORM_HAS_EMPTY_FIELDS = 'Tous les champs sont obligatoires.';
@@ -26,7 +26,7 @@ $('#submit-access-key').click(function () {
 
 function validateSubscriptionForm() {
     if (!subscriptionFormIsEmpty()) {
-        displayError('#subscription-form-error', FORM_HAS_EMPTY_FIELDS)
+        displayError('#subscription-form-error', FORM_HAS_EMPTY_FIELDS);
         return false;
     }
     return true;
@@ -54,7 +54,11 @@ $('#subscribe-button').click(function (event) {
     var isSubscriptionFormValid = validateSubscriptionForm();
     if (isSubscriptionFormValid) {
         var destination = $('#shipping-address').val() + $('#postal-code').val();
-        validateIsInBound(destination, addToCart);
+        validateDestinationIsInBound(destination)
+            .then(addToCart)
+            .fail(function(reason){
+                displayError('#subscription-form-error', reason);
+            });
     }
 });
 
