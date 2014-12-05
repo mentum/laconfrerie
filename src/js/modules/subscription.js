@@ -1,8 +1,12 @@
 var keenService = require('./keen-service');
-var validateIsInBound = require('./validate-geodistance');
+var validateDestinationIsInBound = require('./geodistance-service');
 var addToCart = require('./payment');
 
 var isAccessKeyValid = false;
+
+function displayError(id, message) {
+    $(id).text(message);
+}
 
 function showSubscriptionForm() {
     $('.step1').addClass('hidden');
@@ -31,7 +35,11 @@ $('#subscribe-button').click(function (event) {
     event.stopPropagation();
     if (subscribeFormIsValid()) {
         var destination = $('#shipping-address').val() + $('#postal-code').val();
-        validateIsInBound(destination, addToCart);
+        validateDestinationIsInBound(destination)
+            .then(addToCart)
+            .fail(function(reason){
+                displayError('#subscription-form-error', reason);
+            });
     } else {
         alert('veuillez remplir le formulaire');
     }

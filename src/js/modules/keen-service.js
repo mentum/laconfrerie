@@ -17,36 +17,36 @@ module.exports = {
 	    keenClient.addEvent(PINTS_COLLECTION_NAME, {user_ip_address: "${keen.ip}"});
 	},
 	getPouredPintCount: function () {
-		var deffered = Q.defer();
+		var deferred = Q.defer();
 
 	    Keen.ready(function (){
 	    	var countQuery = new Keen.Query('count', {eventCollection: PINTS_COLLECTION_NAME});
 
 	        keenClient.run(countQuery, function (response) {
-	        	deffered.resolve(response.result);
+	        	deferred.resolve(response.result);
 	    	});
 	    });
 
-    	return deffered.promise;
+    	return deferred.promise;
 	},
 	validateAccessKey: function (accessKey) {
-	    var deffered = Q.defer();
+	    var deferred = Q.defer();
 
 	    var keenQueryParams = {
 	        eventCollection: SUBSCRIBER_COLLECTION_NAME,
 	        filters: [{property_name:"recruiterKey", operator:"eq", property_value: accessKey}]
-	    }
+	    };
 
 	    var keyCountQuery = new Keen.Query('count', keenQueryParams);
 	    keenClient.run(keyCountQuery, function (response) {
 	        if (response.result > 0) {
 	            isAccessKeyValid = true;
-	            deffered.resolve();
+	            deferred.resolve();
 	        } else {
-	            deffered.reject("La clé d'accès est invalide");
+	            deferred.reject("La clé d'accès est invalide");
 	        }
 	    });
 
-	    return deffered.promise;
+	    return deferred.promise;
 	}
-}
+};
