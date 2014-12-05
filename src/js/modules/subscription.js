@@ -1,5 +1,5 @@
 var keenService = require('./keen-service');
-var geoDistanceService = require('./geodistance-service');
+var validateDestinationIsInBound = require('./geodistance-service');
 var addToCart = require('./payment');
 
 var isAccessKeyValid = false;
@@ -35,7 +35,7 @@ $('#subscribe-button').click(function (event) {
     event.stopPropagation();
     if (subscribeFormIsValid()) {
         var destination = $('#shipping-address').val() + $('#postal-code').val();
-        geoDistanceService.validateDestinationIsInBound(destination)
+        validateDestinationIsInBound(destination)
             .then(addToCart)
             .fail(function(reason){
                 displayError('#subscription-form-error', reason);
