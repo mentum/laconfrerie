@@ -2,6 +2,7 @@ var keenService = require('./keen-service');
 var validateIsInBound = require('./validate-geodistance');
 var addToCart = require('./payment');
 
+var FORM_HAS_EMPTY_FIELDS = 'Tous les champs sont obligatoires.';
 var subscriptionFormId = '#subscription-form';
 
 function displayError(id, message) {
@@ -24,14 +25,14 @@ $('#submit-access-key').click(function () {
 });
 
 function validateSubscriptionForm() {
-    if (!validateSubscriptionFormIsFilled()) {
-        displayError('#subscription-form-error', 'Tous les champs sont obligatoires.')
+    if (!subscriptionFormIsEmpty()) {
+        displayError('#subscription-form-error', FORM_HAS_EMPTY_FIELDS)
         return false;
     }
     return true;
 }
 
-function validateSubscriptionFormIsFilled() {
+function subscriptionFormIsEmpty() {
     var isFilled = true;
     $(subscriptionFormId + ' input').each(function() {
         var input = $(this);
