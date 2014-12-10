@@ -50,19 +50,16 @@
                     </div>
                 </div>
                 <div class="step1 hidden">
-                    <p>La confrérie accueille actuellement 50 nouveaux membres.</p>
-                    <p>Vous devez être invité par un membre pour pouvoir joindre.</p>
-                    <form id="accesCodeForm">
-                        <div class="form-group">
-                            <label for="access-code">Code d'accès</label>
-                            <input type="text" id="access-code" class="form-control">
-                        </div>
-                        <a id="access-code-button"
-                           href="#"
-                           class="btn btn-primary pull-right">
-                           inscription
-                        </a>
-                    </form>
+                    <h2>Avez-vous votre clé secrète ?</h2>
+                    <p>La confrérie accueille actuellement 50 nouveaux membres, vous devez être invité par un membre pour pouvoir joindre.</p>
+                    <div class="form-group">
+                        <label for="access-key">Clé d'accès secrète</label>
+                        <input type="text" id="access-key" class="form-control">
+                    </div>
+                    <button id="submit-access-key"
+                       class="btn btn-primary pull-right">
+                       inscription
+                    </button>
                 </div>
                 <div class="step2 hidden">
                     <h2>Inscription</h2>
@@ -83,12 +80,13 @@
                             <label for="postal-code">Code postal</label>
                             <input type="text" id="postal-code" class="form-control" placeholder="G1G 1G1">
                         </div>
+                        <div id="subscription-form-error" class="error-message pull-left"></div>
                         <a id="subscribe-button"
                            href="#"
                            class="snipcart-add-item btn btn-primary pull-right"
                            data-item-id="1"
-                           data-item-name="3 mois d'abonnement"
-                           data-item-price="115.00"
+                           data-item-name="1 mois d'abonnement"
+                           data-item-price="35.00"
                            data-item-url="/">
                             GO
                         </a>
