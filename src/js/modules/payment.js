@@ -1,6 +1,9 @@
 var crypto = require('crypto');
 var keenService = require('./keen-service');
 
+var FACEBOOK_SHARE_URL = "https://www.facebook.com/sharer/sharer.php?u=",
+    LA_CONFRERIE_SHARE_URL = 'http://laconfrerie.ca/?accessKey=';
+
 var orderComplete = false;
 
 function generateRecruiterKey(email){
@@ -16,10 +19,12 @@ Snipcart.execute('bind', 'order.completed', function (data) {
         accessKey : $('#access-key').val(),
         email : data.billingAddress.email,
         recruiterKey : recruiterKey
-    }
+    };
 
     keenService.sendSubsriptionEvent(subscription);
     orderComplete = true;
+
+    bindShareFacebookButtonLink(recruiterKey);
 });
 
 Snipcart.execute('bind', 'cart.closed', function() {
@@ -54,5 +59,16 @@ function add3MonthtsToCart() {
     Snipcart.execute('setShippingAddress', snipCartAddressObject);
 }
 
+function bindShareFacebookButtonLink(accessKey) {
+    $('#share-fb').click(function(e) {
+        e.preventDefault();
+
+        var escapedUrl = escape(LA_CONFRERIE_SHARE_URL + accessKey);
+
+        window.open(FACEBOOK_SHARE_URL + escapedUrl + "&t=" + document.title,
+            '_blank',
+            'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+    });
+}
 
 module.exports = add3MonthtsToCart;

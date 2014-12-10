@@ -33,6 +33,13 @@ function isFormInputValid(id) {
     return $(id).val() != '';
 }
 
+(function initAccessKeyInput() {
+    var accessKey = getUrlParameterValue('accessKey');
+    if(accessKey) {
+        $(ACCESS_KEY_ID).val(accessKey);
+    }
+})();
+
 $('#subscribe-button').click(function (event) {
     event.stopPropagation();
     if (subscribeFormIsValid()) {
@@ -51,8 +58,3 @@ $('#buy-membership').click(function(){
     $('.step0').addClass('hidden');
     $('.step1').removeClass('hidden');
 });
-
-(function initAccessKeyInput() {
-    var accessKey = getUrlParameterValue('accessKey');
-    if(accessKey) $(ACCESS_KEY_ID).val(accessKey);
-})();
