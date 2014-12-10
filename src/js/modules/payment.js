@@ -24,7 +24,7 @@ Snipcart.execute('bind', 'order.completed', function (data) {
     keenService.sendSubsriptionEvent(subscription);
     orderComplete = true;
 
-    bindShareFacebookButtonLink(recruiterKey);
+    bindFacebookShareButtonLink(recruiterKey);
 });
 
 Snipcart.execute('bind', 'cart.closed', function() {
@@ -59,7 +59,7 @@ function add3MonthtsToCart() {
     Snipcart.execute('setShippingAddress', snipCartAddressObject);
 }
 
-function bindShareFacebookButtonLink(accessKey) {
+function bindFacebookShareButtonLink(accessKey) {
     $('#share-fb').click(function(e) {
         e.preventDefault();
 
