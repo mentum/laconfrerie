@@ -32,12 +32,11 @@ Snipcart.execute('bind', 'cart.closed', function() {
 function add3MonthtsToCart() {
     Snipcart.execute('item.add', {
         id: '1',
-        name: "3 mois d'abonnement",
+        name: "1 mois d'abonnement",
         url: '/',
-        price: 115,
+        price: 35,
         description: 'Sélection de bières exclusives finement préparée à chaque mois',
         quantity: 1,
-        maxQuantity: 1,
         shippable: true
     });
 
