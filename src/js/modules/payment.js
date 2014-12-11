@@ -1,5 +1,6 @@
 var crypto = require('crypto');
 var keenService = require('./keen-service');
+var bindShareButtonsLinks = require('./share');
 
 var orderComplete = false;
 
@@ -16,10 +17,12 @@ Snipcart.execute('bind', 'order.completed', function (data) {
         accessKey : $('#access-key').val(),
         email : data.billingAddress.email,
         recruiterKey : recruiterKey
-    }
+    };
 
     keenService.sendSubsriptionEvent(subscription);
     orderComplete = true;
+
+    bindShareButtonsLinks(recruiterKey);
 });
 
 Snipcart.execute('bind', 'cart.closed', function() {
@@ -52,6 +55,5 @@ function add3MonthtsToCart() {
     Snipcart.execute('setBillingAddress', snipCartAddressObject);
     Snipcart.execute('setShippingAddress', snipCartAddressObject);
 }
-
 
 module.exports = add3MonthtsToCart;
