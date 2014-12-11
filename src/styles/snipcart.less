@@ -5,22 +5,51 @@
 @base-color: #f7f5ea;
 @darkened-base-color: #f5eadb;
 
+
+@headings-font-family: 'Quicksand', Arial, arial, sans-serif;
+@base-font-family: Verdana, Arial, arial, sans-serif;
+
+@border-radius: 0;
+
 #snipcart-main-container {
+
+    input,
+    #snipcart-header-total,
+    input[type=text],
+    input[type=password],
+    select,
+    span.snipcart-form-error {
+        -webkit-border-radius: @border-radius;
+        -moz-border-radius: @border-radius;
+        border-radius: @border-radius;
+
+        &:focus {
+            border-color: @dark-gray-color;
+            box-shadow: none;
+            outline: none;
+        }
+    }
 
     a {
         color: #333;
     }
 
     /* Change the style of every button */
-    a.snipcart-btn {
-        border-radius: 0;
+    a.snipcart-btn, button.snipcart-btn {
+        border-radius: @border-radius;
         background: none;
         background-color: transparent;
-        color: #fff;
-        font-family: Verdana, sans-serif;
+        color: @dark-gray-color;
+        font-family: @headings-font-family;
+        border-width: 2px;
+        border-color: @dark-gray-color;
+        border-style: solid;
+        transition: all 0.2s ease-out;
+        margin-bottom: 15px;
 
         &:hover {
-            color: #333;
+            color: @base-color;
+            background-color: @dark-gray-color;
             box-shadow: none;
             -webkit-box-shadow: none;
             -moz-box-shadow: none;
@@ -30,13 +59,8 @@
     a.snipcart-next,
     a.snipcart-finalize,
     a.snipcart-mainaction {
-//        background: @primary-color;
-//        border: none;
-//        text-shadow: none;
-
         background-color: transparent;
         color: @gold-color;
-        border-width: 2px;
         border-color: @gold-color;
         transition: all 0.2s ease-out;
 
@@ -59,23 +83,28 @@
     #snipcart-header {
         background: #eee;
         -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
-        -moz-box-shadow:    0px 2px 2px 0px rgba(0, 0, 0, 0.5);
-        box-shadow:         0px 2px 2px 0px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
+        height: 40px;
         border-top: 30px solid @primary-color;
-        padding-top: 10px;
+        padding: 20px;
         position: relative;
         z-index: 200;
+        font-family: @headings-font-family;
 
         #snipcart-title {
             color: @primary-color;
-            //background: url('../img/twitter.icon.png') no-repeat 0 center;
-            padding-left: 60px;
+            font: 29px @headings-font-family;
+            height: auto;
+            position: initial;
         }
 
         #snipcart-header-total {
             padding: 1px;
             background: #fff;
             border-color: #bbb;
+            margin: 0;
+            float: right;
         }
 
         #snipcart-total {
@@ -94,8 +123,8 @@
     .snipcart-additional-option {
         background: #eee;
         -webkit-box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.3);
-        -moz-box-shadow:    0px -2px 2px 0px rgba(0, 0, 0, 0.3);
-        box-shadow:         0px -2px 2px 0px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.3);
         border-bottom: 8px solid @primary-color;
     }
 
@@ -113,6 +142,8 @@
         top: 65px;
     }
 
+
+
     span.snipcart-unit-price,
     span.snipcart-total-price,
     table.snipcart-list span.snipcart-product-name,
@@ -124,15 +155,11 @@
     label,
     ul#snipcart-steps li span.snipcart-step-text,
     table.snipcart-list th,
-    #snipcart-main-content .snipcart-column span.snipcart-title,
     table#snipcart-confirm-prices tr td span,
-    .snipcart-full-width-text span.snipcart-title,
     .snipcart-full-width-text,
     #snipcart-step-content-emptycart .snipcart-full-width-text p,
-    #snipcart-blocked .snipcart-full-width-text p,
-    #snipcart-header #snipcart-total span,
-    #snipcart-header #snipcart-title  {
-        font-family: Verdana, sans-serif;
+    #snipcart-blocked .snipcart-full-width-text p {
+        font-family: @base-font-family;
     }
 
     ul#snipcart-steps {
@@ -145,12 +172,6 @@
             &.active {
                 background-color: #fff;
                 opacity: 1;
-            }
-
-            /* Change the step icons to number */
-            span.snipcart-step-number {
-                font-family: Verdana, sans-serif;
-
             }
         }
     }
@@ -170,9 +191,7 @@
         border: none;
         background: #fbfbfb;
         border: 1px solid #bbb;
-        border-radius: 3px;
-        -moz-border-radius: 3px;
-        -webkit-border-radius: 3px;
+        border-radius: @border-radius;
     }
 
     /* Empty cart message*/
@@ -185,39 +204,21 @@
     #snipcart-main-content {
         #snipcart-current-user {
 
-            /* We need the !important here because there is one in the default stylesheet */
             #snipcart-user-infos {
                 background: #82999d;
             }
 
+            /* We need the !important here because there is one in the default stylesheet */
             .snipcart-welcome {
                 color: #ddd !important;
             }
         }
     }
 
-    .icon-Snipcart-6:before {
-        content: "1";
-    }
-
-    .icon-Snipcart-4:before {
-        content: "2";
-    }
-
-    .icon-Snipcart-3:before {
-        content: "3";
-    }
-
-    .icon-Snipcart-2:before {
-        content: "4";
-    }
-    .icon-Snipcart:before {
-        content: "5";
-    }
-    .icon-Snipcart-5:before {
-        content: "6";
-    }
-    .icon-Snipcart-7:before {
-        content: "7";
+    @media all and ( max-width: 767px ) {
+        #snipcart-close {
+            top: 10px;
+            right: 10px;
+        }
     }
 }
