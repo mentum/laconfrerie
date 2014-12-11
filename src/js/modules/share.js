@@ -25,10 +25,10 @@ function getOpenWindowOptions() {
         top    = ($(window).height() - height) / 2;
 
     return 'status=1' +
-        ',width='  + width  +
+        ',width=' + width  +
         ',height=' + height +
-        ',top='    + top +
-        ',left='   + left +
+        ',top=' + top +
+        ',left=' + left +
         ',menubar=no' +
         ',toolbar=no' +
         ',resizable=yes' +
