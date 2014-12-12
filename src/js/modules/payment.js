@@ -7,7 +7,7 @@ function generateRecruiterKey(email){
     var hash = crypto.createHash('md5');
     
     return hash.update(email).digest('hex').substring(0,5);
-};
+}
 
 Snipcart.execute('bind', 'order.completed', function (data) {
     var recruiterKey = generateRecruiterKey(data.billingAddress.email);
@@ -16,7 +16,7 @@ Snipcart.execute('bind', 'order.completed', function (data) {
         accessKey : $('#access-key').val(),
         email : data.billingAddress.email,
         recruiterKey : recruiterKey
-    }
+    };
 
     keenService.sendSubsriptionEvent(subscription);
     orderComplete = true;
