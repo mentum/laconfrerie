@@ -24,15 +24,7 @@ $('#submit-access-key').click(function () {
         });
 });
 
-function validateSubscriptionForm() {
-    if (!subscriptionFormIsEmpty()) {
-        displayError('#subscription-form-error', FORM_HAS_EMPTY_FIELDS);
-        return false;
-    }
-    return true;
-}
-
-function subscriptionFormIsEmpty() {
+function validateSubscriptionFormIsFilled() {
     var isFilled = true;
     $(subscriptionFormId + ' input').each(function() {
         var input = $(this);
@@ -41,7 +33,13 @@ function subscriptionFormIsEmpty() {
             isFilled = false;
         }
     });
-    return isFilled;
+
+    if(!isFilled) throw new Error(FORM_HAS_EMPTY_FIELDS);
+}
+
+function validateDestination() {
+    var destination = $('#shipping-address').val() + $('#postal-code').val();
+    return validateDestinationIsInBound(destination)
 }
 
 $(subscriptionFormId + ' input').on('focus', function() {
@@ -51,14 +49,15 @@ $(subscriptionFormId + ' input').on('focus', function() {
 $('#subscribe-button').click(function (event) {
     event.stopPropagation();
 
-    var isSubscriptionFormValid = validateSubscriptionForm();
-    if (isSubscriptionFormValid) {
-        var destination = $('#shipping-address').val() + $('#postal-code').val();
-        validateDestinationIsInBound(destination)
+    try {
+        validateSubscriptionFormIsFilled();
+        validateDestination()
             .then(addToCart)
-            .fail(function(reason){
-                displayError('#subscription-form-error', reason);
+            .fail(function(reason) {
+                throw new Error(reason);
             });
+    } catch(error) {
+        displayError('#subscription-form-error', error.message);
     }
 });
 
