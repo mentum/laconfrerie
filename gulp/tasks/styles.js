@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     less = require('gulp-less'),
-    minifyCss = require('gulp-minify-css');
+    minifyCss = require('gulp-minify-css'),
+    autoprefixer = require('gulp-autoprefixer');
 
 module.exports = gulp.task('styles', function () {
     gulp.src([
@@ -10,7 +11,11 @@ module.exports = gulp.task('styles', function () {
         configs.paths.styles + '*.css'
     ])
         .pipe(less())
-        //.pipe(minifyCss())
+        .pipe(minifyCss())
+        .pipe(autoprefixer({
+            browsers: ['IE >= 8', 'last 6 versions'],
+            cascade: false
+        }))
         .pipe(gulp.dest(configs.paths.dest + 'css/'));
 
     gulp.src(configs.paths.styles + '*.css')
