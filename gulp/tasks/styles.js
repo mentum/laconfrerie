@@ -5,11 +5,12 @@ var gulp = require('gulp'),
 module.exports = gulp.task('styles', function () {
     gulp.src([
         configs.paths.styles + 'styles.less',
+        configs.paths.styles + 'snipcart.less',
         configs.paths.styles + 'bootstrap-less/bootstrap.less',
         configs.paths.styles + '*.css'
     ])
         .pipe(less())
-        .pipe(minifyCss())
+        //.pipe(minifyCss())
         .pipe(gulp.dest(configs.paths.dest + 'css/'));
 
     gulp.src(configs.paths.styles + '*.css')
