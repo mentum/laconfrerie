@@ -1,0 +1,213 @@
+@primary-color: #dc9942;
+@gold-color: #dc9942;
+@dark-gray-color: #1e1e1e;
+@burgundy-color: #843b34;
+@base-color: #f7f5ea;
+@darkened-base-color: #f5eadb;
+
+
+@headings-font-family: 'Quicksand', Arial, arial, sans-serif;
+@base-font-family: Verdana, Arial, arial, sans-serif;
+
+@border-radius: 0;
+
+#snipcart-main-container {
+
+    input,
+    #snipcart-header-total,
+    input[type=text],
+    input[type=password],
+    select,
+    span.snipcart-form-error {
+        border-radius: @border-radius;
+
+        &:focus {
+            border-color: @dark-gray-color;
+            box-shadow: none;
+            outline: none;
+        }
+    }
+
+    a {
+        color: #333;
+    }
+
+    /* Change the style of every button */
+    a.snipcart-btn, button.snipcart-btn {
+        border-radius: @border-radius;
+        background: none;
+        background-color: transparent;
+        color: @dark-gray-color;
+        font-family: @headings-font-family;
+        border-width: 2px;
+        border-color: @dark-gray-color;
+        border-style: solid;
+        transition: all 0.2s ease-out;
+        margin-bottom: 15px;
+
+        &:hover {
+            color: @base-color;
+            background-color: @dark-gray-color;
+            box-shadow: none;
+        }
+    }
+
+    a.snipcart-next,
+    a.snipcart-finalize,
+    a.snipcart-mainaction {
+        background-color: transparent;
+        color: @gold-color;
+        border-color: @gold-color;
+        transition: all 0.2s ease-out;
+
+        &:focus {
+            background-color: transparent;
+            color: @gold-color;
+            border-width: 2px;
+            border-color: @gold-color;
+            outline: none;
+        }
+
+        &:hover {
+            background-color: @gold-color;
+            color: @base-color;
+            border-width: 2px;
+            border-color: @gold-color;
+        }
+    }
+
+    #snipcart-header {
+        background: #eee;
+        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
+        height: 40px;
+        border-top: 30px solid @primary-color;
+        padding: 20px;
+        position: relative;
+        z-index: 200;
+        font-family: @headings-font-family;
+
+        #snipcart-title {
+            color: @primary-color;
+            font: 29px @headings-font-family;
+            height: auto;
+            position: initial;
+        }
+
+        #snipcart-header-total {
+            padding: 1px;
+            background: #fff;
+            border-color: #bbb;
+            margin: 0;
+            float: right;
+        }
+
+        #snipcart-total {
+            background-color: transparent;
+            color: #333;
+            border: none;
+            opacity: 0.5;
+
+            span {
+                color: #333;
+            }
+        }
+    }
+
+    #snipcart-actions,
+    .snipcart-additional-option {
+        background: #eee;
+        box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.3);
+        border-bottom: 8px solid @primary-color;
+    }
+
+    #snipcart-main-content {
+        #snipcart-sub-content {
+            padding-top: 20px;
+        }
+
+        .snipcart-step-container {
+            padding-bottom: 20px;
+        }
+    }
+
+    #snipcart-cartitems-continue-top {
+        top: 65px;
+    }
+
+
+
+    span.snipcart-unit-price,
+    span.snipcart-total-price,
+    table.snipcart-list span.snipcart-product-name,
+    table.snipcart-list span.snipcart-shipping-method-name,
+    table.snipcart-list span.snipcart-shipping-method-price,
+    table.snipcart-list span.snipcart-confirm-item-quantity,
+    table.snipcart-list span.snipcart-confirm-item-price,
+    table.snipcart-list span.snipcart-confirm-item-total-price,
+    label,
+    ul#snipcart-steps li span.snipcart-step-text,
+    table.snipcart-list th,
+    table#snipcart-confirm-prices tr td span,
+    .snipcart-full-width-text,
+    #snipcart-step-content-emptycart .snipcart-full-width-text p,
+    #snipcart-blocked .snipcart-full-width-text p {
+        font-family: @base-font-family;
+    }
+
+    ul#snipcart-steps {
+        background: transparent;
+
+        li {
+            background: #eee;
+            opacity: 0.5;
+
+            &.active {
+                background-color: #fff;
+                opacity: 1;
+            }
+        }
+    }
+
+    #snipcart-promocodes {
+        background: #fbfbfb;
+    }
+
+    /* Confirmation error textarea  */
+    .snipcart-comments-box textarea {
+        resize: none;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        padding: 10px;
+        background: #fbfbfb;
+        border: 1px solid #bbb;
+        border-radius: @border-radius;
+    }
+
+    /* Empty cart message*/
+    #snipcart-step-content-emptycart .snipcart-full-width-text p {
+        color: #333;
+        padding-bottom: 20px;
+    }
+
+    /* Sign in user bar */
+    #snipcart-main-content {
+        #snipcart-current-user {
+
+            #snipcart-user-infos {
+                background: #82999d;
+            }
+
+            /* We need the !important here because there is one in the default stylesheet */
+            .snipcart-welcome {
+                color: #ddd !important;
+            }
+        }
+    }
+
+    @media all and ( max-width: 767px ) {
+        #snipcart-close {
+            top: 10px;
+            right: 10px;
+        }
+    }
+}
