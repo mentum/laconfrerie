@@ -1,0 +1,61 @@
+@import "variables";
+
+section#what-we-do {
+    background-color: @darkened-base-color;
+    .row {
+        display: flex;
+        align-items: stretch;
+
+        > div {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            &:nth-child(2), &:nth-child(4) {
+                background-color: @base-color;
+            }
+            img {
+                width: 50%;
+                max-width: 150px;
+                margin-bottom: 25px;
+            }
+            p {
+                margin: 0;
+                strong {
+                    color: @gold-color;
+                }
+            }
+        }
+    }
+}
+
+@media all and ( max-width: 991px ) {
+    section#what-we-do {
+        .row {
+            display: block;
+            > div {
+                img {
+                    width: 40%;
+                }
+                &:nth-child(3) {
+                    background-color: @base-color;
+                }
+                &:nth-child(4) {
+                    background-color: @darkened-base-color;
+                }
+            }
+        }
+
+    }
+}
+
+@media all and ( max-width: 767px ) {
+    section#what-we-do {
+        .row > div {
+            &:nth-child(3) {
+                background-color: @darkened-base-color;
+            }
+            &:nth-child(4) {
+                background-color: @base-color;
+            }
+        }
+    }
+}

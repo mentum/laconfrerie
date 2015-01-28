@@ -1,0 +1,104 @@
+@import "variables";
+
+body {
+    font-family: 'Quicksand', Arial, arial, sans-serif;
+    background: white;
+
+    p, span {
+        margin: 25px 0;
+        font-size: 22px;
+        line-height: 36px;
+    }
+
+    h1, h2, h3 {
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        color: @dark-gray-color;
+    }
+
+    h1.dark, h2.dark, h3.dark {
+        color: @dark-gray-color;
+    }
+
+    h1.light, h2.light, h3.light {
+        color: @base-color;
+    }
+
+    h1 {
+        margin: 0;
+        line-height: 54px;
+        font-size: 40px;
+        font-weight: 100;
+    }
+
+    input {
+        &.form-control {
+            &:focus {
+                border-color: gray;
+                box-shadow: none;
+            }
+        }
+        &.invalid {
+            border-color: red;
+        }
+    }
+
+    .error-message {
+        color: red;
+    }
+
+    .section-title {
+        position: relative;
+        margin-bottom: 100px;
+        z-index: 0;
+        h2 {
+            display: inline-block;
+            padding: 20px 30px 10px 30px;
+            background: white;
+            font-size: 50px;
+            margin-top: 0;
+            margin-bottom: 0;
+            &.two-line-title {
+                padding-top: 0;
+                & ~ .title-line {
+                    top: 85px;
+                }
+            }
+        }
+        .title-line {
+            position: absolute;
+            height: 0;
+            width: 100%;
+            border-top: 1px solid @dark-gray-color;
+            top: 50px;
+            z-index: -1;
+        }
+    }
+}
+
+@media all and ( max-width: @mobile-width ) {
+    body {
+        h1 {
+            line-height: 46px;
+            font-size: 28px;
+        }
+        .section-title {
+            h2 {
+                font-size: 32px;
+                padding: 0;
+            }
+            .title-line {
+                display: none;
+            }
+        }
+        p {
+            font-size: 20px;
+            line-height: 28px;
+        }
+    }
+
+    .btn-primary {
+        padding: 14px;
+        font-size: 20px;
+    }
+}

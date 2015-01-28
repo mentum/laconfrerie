@@ -1,0 +1,85 @@
+@import "variables";
+
+@panel-width: @mobile-width;
+@panel-padding: 50px;
+@logo-min-width: 400px;
+@logo-width: ~"100%" - (@panel-width + 2 * @panel-padding);
+
+header {
+    background: url('../img/barrels.jpg') @base-color no-repeat center top;
+    background-size: cover;
+    overflow: hidden;
+
+    .row {
+        margin: 3 * @panel-padding -15px;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    #logo {
+        width: calc(@logo-width);
+        min-width: @logo-min-width;
+        max-width: @logo-min-width + @panel-width;
+        img {
+            max-width: 600px;
+            width: 80%;
+            margin: auto;
+            -webkit-filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.8));
+        }
+    }
+
+    .signup {
+        background-color: @base-color;
+        padding: @panel-padding;
+        height: 550px;
+        max-width: @panel-width;
+        transition: all 0.8s ease-out;
+        position: relative;
+        ul {
+            position: absolute;
+            top: 45%;
+            width: calc(~"100% - 100px");
+            li {
+                font-size: 26px;
+                list-style-type: circle;
+            }
+        }
+        h1 #degustation-quote {
+            font-weight: bolder;
+        }
+    }
+    #subscription-form {
+        padding-top: 25px;
+    }
+}
+
+// Smaller bg img on smaller devices
+@media all and ( max-width: 991px ) {
+    header {
+        background-image: url('../img/barrels_1024.jpg');
+    }
+}
+
+// panel and logo stack on mobile
+@media all and ( max-width: (@panel-width + @logo-min-width) ) {
+    header {
+        #logo {
+            width: 100%;
+            min-width: 0;
+            max-width: @panel-width + 2 * @panel-padding;
+            margin-bottom: @panel-padding;
+        }
+        .row {
+            margin: @panel-padding -15px;
+        }
+    }
+}
+
+@media all and ( max-width: @panel-width ) {
+    header .signup {
+        height: auto;
+        padding-left: @panel-padding / 2;
+        padding-right: @panel-padding / 2;
+    }
+}

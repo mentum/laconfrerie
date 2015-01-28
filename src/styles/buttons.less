@@ -1,0 +1,37 @@
+@import "variables";
+
+.primary-button-mixin() {
+    background-color: transparent;
+    color: @gold-color;
+    border-width: 2px;
+    border-color: @gold-color;
+    transition: all 0.2s ease-out;
+
+    &:focus {
+        background-color: transparent;
+        color: @gold-color;
+        border-width: 2px;
+        border-color: @gold-color;
+        outline: none;
+    }
+
+    &:hover {
+        background-color: @gold-color;
+        color: @base-color;
+        border-width: 2px;
+        border-color: @gold-color;
+    }
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.btn-lg {
+    padding: 20px 20px;
+    font-size: 24px;
+}
+
+.btn-primary {
+    .primary-button-mixin;
+}

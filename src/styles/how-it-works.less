@@ -1,0 +1,62 @@
+@import "variables";
+
+@step-number-size: 60px;
+@step-text-width: ~"100%" - @step-number-size;
+@mobile-step-number-size: 45px;
+
+section#how-it-works {
+    padding-top: @section-padding;
+    padding-bottom: @section-padding;
+
+    .step {
+        padding: 50px 25px 0 0;
+        .step-number {
+            width: @step-number-size;
+            height: @step-number-size;
+            border-right: 1px solid @dark-gray-color;
+            color: @gold-color;
+            span {
+                font-size: 85px;
+                line-height: @step-number-size;
+                margin: 0;
+            }
+        }
+        .step-text {
+            width: calc(@step-text-width);
+            padding-left: 25px;
+            margin-top: -9px;
+        }
+    }
+
+    #buy-how {
+        margin-top: 75px;
+    }
+}
+
+@media all and ( max-width: 991px ) {
+    section#how-it-works {
+        padding-top: @small-screen-section-padding;
+        padding-bottom: @small-screen-section-padding;
+        .step {
+            clear: both;
+        }
+    }
+
+    section#how-it-works .section-title {
+        margin-bottom: 0;
+    }
+}
+
+@media all and ( max-width: 991px ) {
+    section#how-it-works .step {
+        padding-left: 15px;
+        .step-number {
+            height: @mobile-step-number-size;
+            span {
+                font-size: 60px;
+                line-height: @mobile-step-number-size;
+            }
+        }
+
+    }
+}

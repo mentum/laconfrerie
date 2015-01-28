@@ -1,15 +1,21 @@
-@primary-color: #dc9942;
-@gold-color: #dc9942;
-@dark-gray-color: #1e1e1e;
-@burgundy-color: #843b34;
-@base-color: #f7f5ea;
-@darkened-base-color: #f5eadb;
-
+@import "variables";
+@import "buttons";
 
 @headings-font-family: 'Quicksand', Arial, arial, sans-serif;
 @base-font-family: Verdana, Arial, arial, sans-serif;
 
 @border-radius: 0;
+
+.text-strike {
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+a.snipcart-next,
+a.snipcart-finalize,
+a.snipcart-mainaction {
+    .primary-button-mixin;
+}
 
 #snipcart-main-container {
 
@@ -80,14 +86,14 @@
         background: #eee;
         box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
         height: 40px;
-        border-top: 30px solid @primary-color;
+        border-top: 30px solid @gold-color;
         padding: 20px;
         position: relative;
         z-index: 200;
         font-family: @headings-font-family;
 
         #snipcart-title {
-            color: @primary-color;
+            color: @gold-color;
             font: 29px @headings-font-family;
             height: auto;
             position: initial;
@@ -117,7 +123,7 @@
     .snipcart-additional-option {
         background: #eee;
         box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.3);
-        border-bottom: 8px solid @primary-color;
+        border-bottom: 8px solid @gold-color;
     }
 
     #snipcart-main-content {

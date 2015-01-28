@@ -51,16 +51,12 @@ $(SUBSCRIPTION_FORM_ID + ' input').on('focus', function () {
 $('#subscribe-button').click(function (event) {
     event.stopPropagation();
 
-    try {
-        validateSubscriptionFormIsFilled();
-        validateDestination()
-            .then(addToCart)
-            .fail(function (reason) {
-                throw new Error(reason);
-            });
-    } catch (error) {
-        displayError('#subscription-form-error', error.message);
-    }
+	validateSubscriptionFormIsFilled();
+	validateDestination()
+		.then(addToCart)
+		.fail(function (reason) {
+			displayError('#subscription-form-error', reason);
+		});
 });
 
 $('#buy-membership').click(function () {
@@ -74,7 +70,8 @@ $('#submit-access-key').click(function () {
     keenService.validateAccessKey(accessKey)
         .then(showSubscriptionForm)
         .fail(function (reason) {
-            window.alert(reason);
+			console.log('hello')
+			displayError('#access-key-error', reason);
         });
 });
 
