@@ -1,4 +1,4 @@
 laconfrerie.ca
 ===========
 
-Le lub de dégustation de bière du monde
+Le club de dégustation de bière du monde
